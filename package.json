@@ -2,13 +2,13 @@
   "name": "tiny-tools",
   "version": "0.0.1",
   "description": "A collection of useful javascript game dev tools",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "license": "MIT",
   "private": false,
   "scripts": {
     "release": "yarn build && np",
     "test": "ava",
-    "build": "rm -rf dist && parcel build ./index.js --no-cache"
+    "build": "rm -rf dist && parcel build ./index.js --no-cache --no-source-maps --global tiny-tools"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.6.2",

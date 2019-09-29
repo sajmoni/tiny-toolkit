@@ -152,10 +152,3 @@ const getOpacity = tool.normalize(min, max)
 5 + getOpacity(250) * 10
 // 10
 ```
-
-### TODO
-
- - Seeding?
-
- - Tests with Ava
- 

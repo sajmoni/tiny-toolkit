@@ -1,0 +1,16 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "refresh": "rm -rf node_modules && yarn",
+    "test": "ava"
+  },
+  "dependencies": {
+    "ava": "^2.4.0",
+    "lodash": "^4.17.15",
+    "tiny-tools": "file:../"
+  }
+}
