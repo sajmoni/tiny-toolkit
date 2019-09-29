@@ -1,4 +1,4 @@
-# :wrench: Tiny Tools
+# :wrench: Tiny Toolkit
 
 > A collection of useful javascript game dev tools
 
@@ -71,7 +71,7 @@ Option | Description
 #### Example
 
 ```js
-  import * as tool from 'tiny-tools'
+  import * as tool from 'tiny-toolkit'
 
   const numbers = [1, 2, 3]
 
@@ -102,7 +102,7 @@ Returns a function to transform a number between `min` and `max`
 #### Example
 
 ```js
-import * as tool from 'tiny-tools'
+import * as tool from 'tiny-toolkit'
 
 const min = 200
 const max = 300
@@ -125,9 +125,9 @@ Convert an angle from `degrees` to `radians`
 
 ## :computer: Install :computer:
 
-`yarn add tiny-tools`
+`yarn add tiny-toolkit`
 
-`npm install tiny-tools`
+`npm install tiny-toolkit`
 
 ---
 
@@ -142,7 +142,7 @@ Add to the output of `tool.normalize` with your intended `min`
 ##### Example with 5 - 15
 
 ```js
-import * as tool from 'tiny-tools'
+import * as tool from 'tiny-toolkit'
 
 const min = 200
 const max = 300

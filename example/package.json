@@ -11,6 +11,6 @@
   "dependencies": {
     "ava": "^2.4.0",
     "lodash": "^4.17.15",
-    "tiny-tools": "file:../"
+    "tiny-toolkit": "file:../"
   }
 }

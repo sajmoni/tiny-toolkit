@@ -1,4 +1,4 @@
-import * as tool from 'tiny-tools'
+import * as tool from 'tiny-toolkit'
 import test from 'ava'
 import _ from 'lodash/fp'
 
