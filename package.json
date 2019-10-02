@@ -9,7 +9,7 @@
     "release": "yarn build && np",
     "test": "ava",
     "lint": "eslint index.js",
-    "build": "rm -rf dist && parcel build ./index.js --no-cache --no-source-maps --global tiny-toolkit"
+    "build": "rm -rf dist && parcel build ./index.js --no-cache --no-source-maps"
   },
   "devDependencies": {
     "@babel/preset-env": "7.6.2",
