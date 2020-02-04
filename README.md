@@ -40,14 +40,6 @@ Get a random number in a number range. `from` = inclusive, `to` = exclusive.
 
 ---
 
-```js
-tool.weighted
-``` 
-
-TODO
-
----
-
 ### :cat: Misc
 
 ```js
@@ -97,7 +89,7 @@ Turn a number range into a `0 - 1` number range.
 
 Returns a function to transform a number between `min` and `max`
 
-[Normalize to other than 0-1]()
+[Normalize to other than 0-1](#normalize-to-other-than-0-1)
 
 #### Example
 
