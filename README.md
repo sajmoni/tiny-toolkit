@@ -1,6 +1,14 @@
 # :wrench: Tiny Toolkit
 
-> A collection of useful javascript game dev tools
+> A tiny collection of useful javascript game dev tools
+
+<div align="center">
+  <img src="https://badgen.net/npm/v/tiny-toolkit?icon=npm" />
+  <img src="https://badgen.net/npm/dw/tiny-toolkit?icon=npm" />
+</div>
+<div align="center">
+  <img src="https://badgen.net/github/last-commit/sajmoni/tiny-toolkit?icon=github" />
+</div>
 
 ## :sparkles: Features :sparkles:
 
@@ -127,9 +135,9 @@ Convert an angle from `degrees` to `radians`
 
 #### Normalize to other than 0-1
 
-Multiply the output of `tool.normalize` with your intended `max`
+Multiply the output of `tool.normalize` with `intended max - min`
 
-Add to the output of `tool.normalize` with your intended `min`
+Add to the output of `tool.normalize` with `intended min`
 
 ##### Example with 5 - 15
 
