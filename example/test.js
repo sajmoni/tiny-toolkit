@@ -23,20 +23,6 @@ test('distance', (t) => {
   t.is(distance, 28.284271247461902)
 })
 
-// Random
-
-test('chance', (t) => {
-  t.notThrows(() => {
-    tool.chance(0.5)
-  })
-})
-
-test('randomInRange', (t) => {
-  t.notThrows(() => {
-    tool.randomInRange(5, 200)
-  })
-})
-
 // Misc
 
 test('grid', (t) => {

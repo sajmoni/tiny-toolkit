@@ -30,24 +30,6 @@ Get the distance between two points. Points need to be objects with an `x` and `
 
 ---
 
-### :game_die: Random
-
-```js
-tool.chance(probability = 0.5)
-```
-
-Set a probability (between 0 and 1) to return true. 
-
----
-
-```js
-tool.randomInRange(from, to)
-``` 
-
-Get a random number in a number range. `from` = inclusive, `to` = exclusive.
-
----
-
 ### :cat: Misc
 
 ```js

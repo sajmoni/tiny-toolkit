@@ -1,5 +1,3 @@
-import { internalChance } from './internal'
-
 export const angle = ({ x: x1, y: y1 }, { x: x2, y: y2 }) => {
   const xDistance = x2 - x1
   const yDistance = y2 - y1
@@ -9,8 +7,6 @@ export const angle = ({ x: x1, y: y1 }, { x: x2, y: y2 }) => {
   }
   return a
 }
-
-export const chance = (probability = 0.5) => internalChance(probability, Math.random())
 
 export const distance = (
   { x: x1, y: y1 },
@@ -34,11 +30,4 @@ export const normalize = (min, max) => {
   return (t) => (t - min) / delta
 }
 
-// from = inclusive, to = exclusive
-export const randomInRange = (from, to) => Math.floor((Math.random() * (to - from)) + from)
-
 export const toRadians = (_angle) => _angle * (Math.PI / 180)
-
-// export const weighted = (weights) => {
-//   const total = weights.reduce((sum, weight) => sum + weight, 0)
-// }
