@@ -7,6 +7,9 @@
   <img src="https://badgen.net/npm/dw/tiny-toolkit?icon=npm" />
 </div>
 <div align="center">
+  <img src="https://badgen.net/bundlephobia/minzip/tiny-toolkit" />
+</div>
+<div align="center">
   <img src="https://badgen.net/github/last-commit/sajmoni/tiny-toolkit?icon=github" />
 </div>
 
