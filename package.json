@@ -31,7 +31,7 @@
     "eslint-config-airbnb-base": "14.0.0",
     "eslint-plugin-import": "2.20.1",
     "np": "5.2.1",
-    "parcel-bundler": "1.12.4"
+    "parcel": "2.0.0-alpha.3.2"
   },
   "ava": {
     "require": [
