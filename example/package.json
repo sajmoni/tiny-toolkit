@@ -12,9 +12,9 @@
     "test": "ava"
   },
   "dependencies": {
-    "ava": "^3.2.0",
-    "lodash": "^4.17.15",
-    "tiny-toolkit": "file:../"
+    "ava": "3.2.0",
+    "lodash": "4.17.15",
+    "tiny-toolkit": "file:../tiny-toolkit.tgz"
   },
   "devDependencies": {
     "@ava/babel": "1.0.0"
