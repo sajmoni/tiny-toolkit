@@ -1,7 +1,3 @@
 node_modules
 .DS_Store
 dist
-.parcel-cache
-
-# Ignore for now
-docs
