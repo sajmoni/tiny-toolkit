@@ -4,21 +4,16 @@
 
 <div align="center">
   <img src="https://badgen.net/npm/v/tiny-toolkit?icon=npm" />
-  <img src="https://badgen.net/npm/dw/tiny-toolkit?icon=npm" />
-</div>
-<div align="center">
   <img src="https://badgen.net/bundlephobia/minzip/tiny-toolkit" />
-</div>
-<div align="center">
   <img src="https://badgen.net/github/last-commit/sajmoni/tiny-toolkit?icon=github" />
 </div>
 
-## :sparkles: Features :sparkles:
+## :sparkles: Features
 
 ### :straight_ruler: Measure
 
 ```js
-tool.angle(point1, point2)
+tool.getAngle(point1, point2)
 ```
 
 Get the angle (in radians) between two points. Points need to be objects with an `x` and `y` field.
@@ -26,14 +21,90 @@ Get the angle (in radians) between two points. Points need to be objects with an
 ---
 
 ```js
-tool.distance(point1, point2)
+tool.getDistance(point1, point2)
 ```
 
 Get the distance between two points. Points need to be objects with an `x` and `y` field.
 
 ---
 
-### :cat: Misc
+### :heavy_division_sign::heavy_multiplication_x: Math
+
+```js
+tool.normalizeRange(min, max)
+``` 
+
+Turn a number range into a `0 - 1` number range.
+
+Returns a function to transform a number between `min` and `max`
+
+[Normalize to other than 0-1](#normalize-to-other-than-0-1)
+
+#### Example
+
+```js
+const min = 200
+const max = 300
+
+const getOpacity = normalizeRange(min, max)
+
+getOpacity(250)
+// 0.5
+```
+
+---
+
+```js
+tool.normalizeVector(vector)
+``` 
+
+[Normalize a vector](https://www.youtube.com/watch?v=m7VY1T6f8Ak). This is useful for character movement.
+
+#### Example - Character movement
+
+```js
+const movement = {
+  x: 0,
+  y: 0,
+}
+
+if (isKeyDown('down')) {
+  movement.y += 1
+}
+if (isKeyDown('up')) {
+  movement.y -= 1
+}
+if (isKeyDown('left')) {
+  movement.x -= 1
+}
+if (isKeyDown('right')) {
+  movement.x += 1
+}
+
+const normalizedMovement = normalizeVector(movement)
+// If DOWN and RIGHT are pressed:
+// { x: 0.7071067811865475, y: 0.7071067811865475 }
+```
+
+---
+
+```js
+tool.toRadians(angle)
+``` 
+
+Convert an angle from `degrees` to `radians`
+
+<!-- ---
+
+```js
+tool.toDegrees(angle)
+``` 
+
+Convert an angle from `radians` to `degrees` -->
+
+---
+
+### :iphone: Layout
 
 ```js
 tool.grid(options)
@@ -74,55 +145,25 @@ Option | Description
 
 ---
 
-```js
-tool.normalize(min, max)
-``` 
+## :computer: Install
 
-Turn a number range into a `0 - 1` number range.
-
-Returns a function to transform a number between `min` and `max`
-
-[Normalize to other than 0-1](#normalize-to-other-than-0-1)
-
-#### Example
-
-```js
-import * as tool from 'tiny-toolkit'
-
-const min = 200
-const max = 300
-
-const getOpacity = tool.normalize(min, max)
-
-getOpacity(250)
-// 0.5
-```
-
----
-
-```js
-tool.toRadians(angle)
-``` 
-
-Convert an angle from `degrees` to `radians`
-
----
-
-## :computer: Install :computer:
+**yarn**
 
 `yarn add tiny-toolkit`
+
+**npm**
 
 `npm install tiny-toolkit`
 
 ---
 
-## :book: Recipes :book:
+## :book: Recipes
 
 #### Normalize to other than 0-1
 
-Multiply the output of `tool.normalize` with `intended max - min`
+Multiply the output of `tool.normalizeRange` with `intended max - min`
 
-Add to the output of `tool.normalize` with `intended min`
+Add to the output of `tool.normalizeRange` with `intended min`
 
 ##### Example with 5 - 15
 
