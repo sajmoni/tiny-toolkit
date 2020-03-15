@@ -55,10 +55,16 @@ test('grid', (t) => {
   ])
 })
 
-test('normalize', (t) => {
-  const getValue = tool.normalize(200, 300)
+test('normalizeRange', (t) => {
+  const getValue = tool.normalizeRange(200, 300)
   t.is(getValue(250), 0.5)
   t.is(5 + getValue(250) * 10, 10)
+})
+
+test('normalizeVector', (t) => {
+  const vector = { x: 1, y: 1}
+  const result  = tool.normalizeVector(vector)
+  t.deepEqual(result, { x: 0.7071067811865475, y: 0.7071067811865475 })
 })
 
 test('toRadians', (t) => {
