@@ -13,13 +13,13 @@ const point2 = {
   y: 40,
 }
 
-test('angle', (t) => {
-  const angle = tool.angle(point1, point2)
+test('getAngle', (t) => {
+  const angle = tool.getAngle(point1, point2)
   t.is(angle, 3.9269908169872414)
 })
 
-test('distance', (t) => {
-  const distance = tool.distance(point1, point2)
+test('getDistance', (t) => {
+  const distance = tool.getDistance(point1, point2)
   t.is(distance, 28.284271247461902)
 })
 

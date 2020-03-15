@@ -1,7 +1,7 @@
 /**
- * Get the angle between two points
+ * Get the angle in radians between two points
  */
-export const angle = ({ x: x1, y: y1 }, { x: x2, y: y2 }) => {
+export const getAngle = ({ x: x1, y: y1 }, { x: x2, y: y2 }) => {
   const xDistance = x2 - x1
   const yDistance = y2 - y1
   const a = Math.atan(yDistance / xDistance)
@@ -14,7 +14,7 @@ export const angle = ({ x: x1, y: y1 }, { x: x2, y: y2 }) => {
 /**
  * Get the distance between two points
  */
-export const distance = (
+export const getDistance = (
   { x: x1, y: y1 },
   { x: x2, y: y2 },
 ) => Math.hypot(Math.abs(x2 - x1), Math.abs(y2 - y1))
