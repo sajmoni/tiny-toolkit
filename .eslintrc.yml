@@ -1,6 +1,8 @@
-extends: airbnb-base
+extends: prettier
 rules:
   no-use-before-define: off
-  semi:
-    - error
-    - never
+env:
+  es2017: true
+  browser: true
+parserOptions: 
+  sourceType: module
