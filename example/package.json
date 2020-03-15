@@ -8,7 +8,7 @@
     "babel": true
   },
   "scripts": {
-    "refresh": "rm -rf node_modules && yarn",
+    "refresh": "yarn cache clean && yarn add file:../tiny-toolkit.tgz",
     "test": "ava"
   },
   "dependencies": {
