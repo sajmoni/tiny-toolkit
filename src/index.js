@@ -4,11 +4,11 @@
 export const getAngle = ({ x: x1, y: y1 }, { x: x2, y: y2 }) => {
   const xDistance = x2 - x1
   const yDistance = y2 - y1
-  const a = Math.atan(yDistance / xDistance)
+  const angle = Math.atan(yDistance / xDistance)
   if (x1 - x2 < 0) {
-    return a + Math.PI
+    return angle + Math.PI
   }
-  return a
+  return angle
 }
 
 /**
