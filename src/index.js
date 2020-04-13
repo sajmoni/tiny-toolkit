@@ -62,3 +62,31 @@ export const toRadians = (degrees) => degrees * (Math.PI / 180)
  * Convert radians to degrees
  */
 export const toDegrees = (radians) => radians * (180 / Math.PI)
+
+/**
+ * Check if two rectangles are overlapping.
+ */
+export const isColliding = (rectangle1, rectangle2) => {
+  return (rectangle1.x + rectangle1.width >= rectangle2.x
+    && rectangle2.x + rectangle2.width >= rectangle1.x
+    && rectangle1.y + rectangle1.height >= rectangle2.x
+    && rectangle2.y + rectangle2.height >= rectangle1.y)
+}
+/**
+ * Check how much two rectangles are overlapping
+ */
+export const getOverlappingArea = (rectangle1, rectangle2) => {
+  if (!isColliding(rectangle1, rectangle2)) {
+    return 0
+  }
+
+  const minX = Math.max(rectangle1.x, rectangle2.x)
+  const maxX = Math.min(rectangle1.x + rectangle1.width, rectangle2.x + rectangle2.width)
+  const dX = maxX - minX
+
+  const minY = Math.max(rectangle1.y, rectangle2.y)
+  const maxY = Math.min(rectangle1.y + rectangle1.height, rectangle2.y + rectangle2.height)
+  const dY = maxY - minY
+
+  return dX * dY
+}
