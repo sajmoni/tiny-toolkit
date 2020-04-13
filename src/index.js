@@ -90,3 +90,13 @@ export const getOverlappingArea = (rectangle1, rectangle2) => {
 
   return dX * dY
 }
+
+/**
+ * @param {number[]} list
+ */
+export const getAverage = (list) => {
+  if (list.length === 0) {
+    return 0
+  }
+  return list.reduce((total, number) => total + number, 0) / list.length
+}
