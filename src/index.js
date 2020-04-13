@@ -57,3 +57,8 @@ export const normalizeVector = ({ x, y }) => {
  * Convert degrees to radians
  */
 export const toRadians = (degrees) => degrees * (Math.PI / 180)
+
+/**
+ * Convert radians to degrees
+ */
+export const toDegrees = (radians) => radians * (180 / Math.PI)
