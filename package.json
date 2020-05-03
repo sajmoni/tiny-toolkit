@@ -18,21 +18,40 @@
   "prettier": {
     "trailingComma": "all",
     "semi": false,
-    "singleQuote": true
+    "singleQuote": true,
+    "useTabs": false,
+    "bracketSpacing": true
+  },
+  "xo": {
+    "prettier": true,
+    "parser": "@typescript-eslint/parser",
+    "env": [
+      "es2020",
+      "node"
+    ],
+    "rules": {
+      "unicorn/no-process-exit": "off",
+      "unicorn/filename-case": "off",
+      "capitalized-comments": "off",
+      "dot-notation": "off"
+    }
   },
   "scripts": {
     "clean": "rm -f tiny-toolkit.tgz",
-    "build-test": "./build-test.sh",
+    "go": "./build-test.sh",
     "release": "yarn clean && yarn audit && yarn build && np --no-tests",
-    "test": "ava",
+    "test": "xo && ava",
     "lint": "eslint src/index.js",
     "build": "rm -rf dist && rollup --config"
   },
   "devDependencies": {
+    "@rollup/plugin-typescript": "4.1.1",
     "eslint": "6.8.0",
     "eslint-config-prettier": "6.10.0",
     "np": "6.2.0",
-    "prettier": "1.19.1",
-    "rollup": "2.0.6"
+    "rollup": "2.0.6",
+    "tslib": "1.11.1",
+    "typescript": "3.8.3",
+    "xo": "0.30.0"
   }
 }

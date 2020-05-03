@@ -38,19 +38,24 @@ test('grid', (t) => {
 
   t.deepEqual(result, [
     {
-      x: 10, y: 20,
+      x: 10,
+      y: 20,
     },
     {
-      x: 20, y: 20,
+      x: 20,
+      y: 20,
     },
     {
-      x: 30, y: 20,
+      x: 30,
+      y: 20,
     },
     {
-      x: 10, y: 40,
+      x: 10,
+      y: 40,
     },
     {
-      x: 20, y: 40,
+      x: 20,
+      y: 40,
     },
   ])
 })
@@ -62,8 +67,8 @@ test('normalizeRange', (t) => {
 })
 
 test('normalizeVector', (t) => {
-  const vector = { x: 1, y: 1}
-  const result  = tool.normalizeVector(vector)
+  const vector = { x: 1, y: 1 }
+  const result = tool.normalizeVector(vector)
   t.deepEqual(result, { x: 0.7071067811865475, y: 0.7071067811865475 })
 })
 

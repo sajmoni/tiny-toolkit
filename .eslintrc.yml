@@ -1,8 +1,0 @@
-extends: prettier
-rules:
-  no-use-before-define: off
-env:
-  es2017: true
-  browser: true
-parserOptions: 
-  sourceType: module
