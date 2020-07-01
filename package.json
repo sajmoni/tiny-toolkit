@@ -45,13 +45,11 @@
     "build": "rm -rf dist && rollup --config"
   },
   "devDependencies": {
-    "@rollup/plugin-typescript": "4.1.1",
-    "eslint": "6.8.0",
-    "eslint-config-prettier": "6.10.0",
-    "np": "6.2.0",
-    "rollup": "2.0.6",
-    "tslib": "1.11.1",
-    "typescript": "3.8.3",
-    "xo": "0.30.0"
+    "@rollup/plugin-typescript": "5.0.1",
+    "np": "6.2.5",
+    "rollup": "2.18.1",
+    "tslib": "2.0.0",
+    "typescript": "3.9.5",
+    "xo": "0.32.0"
   }
 }

@@ -148,5 +148,6 @@ export const getAverage = (list: readonly number[]): number => {
     return 0
   }
 
+  // eslint-disable-next-line unicorn/no-reduce
   return list.reduce((total, number) => total + number, 0) / list.length
 }
