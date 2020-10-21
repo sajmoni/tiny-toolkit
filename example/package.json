@@ -5,7 +5,13 @@
   "license": "MIT",
   "private": true,
   "ava": {
-    "babel": true
+    "require": [
+      "./setupTests.js"
+    ],
+    "extensions": [
+      "js",
+      "ts"
+    ]
   },
   "scripts": {
     "refresh": "yarn cache clean && yarn add file:../tiny-toolkit.tgz",
@@ -17,6 +23,9 @@
     "tiny-toolkit": "file:../tiny-toolkit.tgz"
   },
   "devDependencies": {
-    "@ava/babel": "1.0.0"
+    "@babel/core": "7.12.3",
+    "@babel/preset-env": "7.12.1",
+    "@babel/preset-typescript": "7.12.1",
+    "@babel/register": "7.12.1"
   }
 }
