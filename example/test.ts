@@ -76,3 +76,22 @@ test('toRadians', (t) => {
   const radians = tool.toRadians(90)
   t.is(radians, Math.PI / 2)
 })
+
+test('treeToList', (t) => {
+  const node4 = {
+    id: '4',
+    children: [],
+  }
+  const node3 = {
+    id: '3',
+    children: [node4],
+  }
+  const node2 = { id: '2', children: [] }
+
+  const node1 = {
+    id: '1',
+    children: [node2, node3],
+  }
+
+  t.deepEqual(tool.treeToList(node1, 'children'), [node2, node4, node3, node1])
+})
