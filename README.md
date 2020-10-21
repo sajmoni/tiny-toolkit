@@ -1,6 +1,6 @@
 # :wrench: Tiny Toolkit
 
-> A tiny collection of useful javascript game dev tools
+> A collection of useful tiny javascript functions
 
 <div align="center">
   <img src="https://badgen.net/npm/v/tiny-toolkit?icon=npm" />
@@ -32,7 +32,7 @@ Get the distance between two points. Points need to be objects with an `x` and `
 
 ```js
 tool.normalizeRange(min, max)
-``` 
+```
 
 Turn a number range into a `0 - 1` number range.
 
@@ -56,9 +56,11 @@ getOpacity(250)
 
 ```js
 tool.normalizeVector(vector)
-``` 
+```
 
-[Normalize a vector](https://www.youtube.com/watch?v=m7VY1T6f8Ak). This is useful for character movement.
+[Normalize a vector](https://www.youtube.com/watch?v=m7VY1T6f8Ak).
+
+_This is useful for character movement in games_.
 
 #### Example - Character movement
 
@@ -90,7 +92,7 @@ const normalizedMovement = normalizeVector(movement)
 
 ```js
 tool.toRadians(angle)
-``` 
+```
 
 Convert an angle from `degrees` to `radians`
 
@@ -98,7 +100,7 @@ Convert an angle from `degrees` to `radians`
 
 ```js
 tool.toDegrees(angle)
-``` 
+```
 
 Convert an angle from `radians` to `degrees` -->
 
@@ -108,7 +110,7 @@ Convert an angle from `radians` to `degrees` -->
 
 ```js
 tool.grid(options)
-``` 
+```
 
 Generate a function to position objects on a grid.
 
@@ -116,31 +118,32 @@ Returns a function to get coordinates. Signature: `(index) => { x, y }`
 
 #### Options
 
-Option | Description
--- | -- 
-**x** | The x coordinate of the top left corner
-**y** | The y coordinate of the top left corner
-**marginX** | The space between each cell on the x axis
-**marginY** | The space between each cell on the y axis
-**itemsPerRow** | The amount of items on a row before a line break
+| Option       | Description                                                                           |
+| ------------ | ------------------------------------------------------------------------------------- |
+| **x**        | The `x` coordinate of the top left corner                                             |
+| **y**        | The `y` coordinate of the top left corner                                             |
+| **marginX**  | The space between each cell on the `x` axis                                           |
+| **marginY**  | The space between each cell on the `y` axis                                           |
+| **breakAt**  | The amount of cells on a `row` (`column` if `vertical` is `true`) before a line break |
+| **vertical** | If the grid should be layed out vertically instead (Default `false`)                  |
 
 #### Example
 
 ```js
-  import * as tool from 'tiny-toolkit'
+import * as tool from 'tiny-toolkit'
 
-  const numbers = [1, 2, 3]
+const numbers = [1, 2, 3]
 
-  const getCell = tool.grid({
-    x: 10,
-    y: 10,
-    marginX: 10,
-    marginY: 10,
-    itemsPerRow: 2,
-  })
+const getCell = tool.grid({
+  x: 10,
+  y: 10,
+  marginX: 10,
+  marginY: 10,
+  breakAt: 2,
+})
 
-  numbers.map(getCell)
-  // [{ x: 10, y: 10}, {x: 20, y: 10}, {x: 10, y: 20}]
+numbers.map(getCell)
+// [{ x: 10, y: 10}, {x: 20, y: 10}, {x: 10, y: 20}]
 ```
 
 ---
