@@ -24,14 +24,13 @@ test('getDistance', (t) => {
 })
 
 // Misc
-
 test('grid', (t) => {
   const getCell = tool.grid({
     x: 10,
     y: 20,
     marginX: 10,
     marginY: 20,
-    itemsPerRow: 3,
+    breakAt: 3,
   })
 
   const result = _.times(getCell, 5)
@@ -52,6 +51,42 @@ test('grid', (t) => {
     {
       x: 10,
       y: 40,
+    },
+    {
+      x: 20,
+      y: 40,
+    },
+  ])
+})
+
+test('grid - vertical', (t) => {
+  const getCell = tool.grid({
+    x: 10,
+    y: 20,
+    marginX: 10,
+    marginY: 20,
+    breakAt: 3,
+    vertical: true,
+  })
+
+  const result = _.times(getCell, 5)
+
+  t.deepEqual(result, [
+    {
+      x: 10,
+      y: 20,
+    },
+    {
+      x: 10,
+      y: 40,
+    },
+    {
+      x: 10,
+      y: 60,
+    },
+    {
+      x: 20,
+      y: 20,
     },
     {
       x: 20,

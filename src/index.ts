@@ -13,7 +13,8 @@ type GridOptions = {
   readonly y: number
   readonly marginX: number
   readonly marginY: number
-  readonly itemsPerRow: number
+  readonly breakAt: number
+  readonly vertical?: boolean
 }
 
 type Rectangle = {
@@ -58,13 +59,14 @@ export const grid = ({
   y,
   marginX,
   marginY,
-  itemsPerRow,
+  breakAt,
+  vertical = false,
 }: GridOptions): getCell => (index) => {
-  const row = Math.floor(index / itemsPerRow)
-  const column = index % itemsPerRow
+  const row = Math.floor(index / breakAt)
+  const column = index % breakAt
   return {
-    x: x + column * marginX,
-    y: y + row * marginY,
+    x: x + (vertical ? row : column) * marginX,
+    y: y + (vertical ? column : row) * marginY,
   }
 }
 
