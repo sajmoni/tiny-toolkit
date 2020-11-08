@@ -130,3 +130,40 @@ test('treeToList', (t) => {
 
   t.deepEqual(tool.treeToList(node1, 'children'), [node2, node4, node3, node1])
 })
+
+test('capitalize', (t) => {
+  t.is(tool.capitalize('hello'), 'Hello')
+})
+
+test('floorPoint', (t) => {
+  t.deepEqual(tool.floorPoint({ x: 5.4656, y: 4.999 }), { x: 5, y: 4 })
+})
+
+test('getDirectionFromAngle', (t) => {
+  t.deepEqual(tool.getDirectionFromAngle(0), { x: 1, y: 0 })
+  t.deepEqual(tool.getDirectionFromAngle(45), { x: 0.70711, y: 0.70711 })
+  t.deepEqual(tool.getDirectionFromAngle(90), { x: 0, y: 1 })
+  t.deepEqual(tool.getDirectionFromAngle(180), { x: -1, y: 0 })
+  t.deepEqual(tool.getDirectionFromAngle(270), { x: -0, y: -1 })
+})
+
+test('getBorderingPoints', (t) => {
+  const expectedResult = [
+    { x: 2, y: 1 },
+    { x: 3, y: 2 },
+    { x: 2, y: 3 },
+    { x: 1, y: 2 },
+    { x: 1, y: 1 },
+    { x: 3, y: 1 },
+    { x: 3, y: 3 },
+    { x: 1, y: 3 },
+  ]
+  t.deepEqual(tool.getBorderingPoints({ x: 2, y: 2 }), expectedResult)
+})
+
+test('getNextItem', (t) => {
+  const list = [{ id: 0 }, { id: 1 }, { id: 2 }]
+  t.is(tool.getNextItem(list[0], list), list[1])
+  t.is(tool.getNextItem(list[1], list), list[2])
+  t.is(tool.getNextItem(list[2], list), list[0])
+})

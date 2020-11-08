@@ -165,3 +165,67 @@ export const treeToList = <T>(node: T, childrenField: string): T[] => {
     .flatMap((childNode: T) => treeToList(childNode, childrenField))
     .concat(node)
 }
+
+/**
+ * Make the first letter in a string uppercase.
+ *
+ * Note: Doesn't handle internationalization
+ */
+export const capitalize = (string: string): string => {
+  return string.charAt(0).toUpperCase() + string.slice(1)
+}
+
+export const floorPoint = (point: Point) => ({
+  x: Math.floor(point.x),
+  y: Math.floor(point.y),
+})
+
+/**
+ * Capped at 5 decimal points
+ *
+ * @param angle - In degrees
+ */
+export const getDirectionFromAngle = (angle: number) => {
+  const inRadians = toRadians(angle)
+  const x = Number.parseFloat(Math.cos(inRadians).toFixed(5))
+  const y = Number.parseFloat(Math.sin(inRadians).toFixed(5))
+  return { x, y }
+}
+
+/*
+const noDiagonals = [
+  // { x: x - 1, y: y + 1 },
+  { x, y: y + 1 },
+  // { x: x + 1, y: y + 1 },
+  { x: x - 1, y },
+  { x: x + 1, y },
+  // { x: x - 1, y: y - 1 },
+  { x, y: y - 1 },
+  // { x: x + 1, y: y - 1 },
+]
+*/
+
+/*
+  [4][0][5],
+  [3][x][1],
+  [7][2][6],
+*/
+export const getBorderingPoints = ({ x, y }: Point): Point[] => [
+  { x, y: y - 1 },
+  { x: x + 1, y },
+  { x, y: y + 1 },
+  { x: x - 1, y },
+  { x: x - 1, y: y - 1 },
+  { x: x + 1, y: y - 1 },
+  { x: x + 1, y: y + 1 },
+  { x: x - 1, y: y + 1 },
+]
+
+/**
+ * Get the next item in a list. Loops back to the first item after the last one.
+ */
+export const getNextItem = <T>(currentItem: T, list: T[]): T => {
+  const currentIndex = list.indexOf(currentItem)
+  const nextIndex = (currentIndex + 1) % list.length
+  return list[nextIndex]
+}
