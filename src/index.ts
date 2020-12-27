@@ -154,15 +154,19 @@ export const getAverage = (list: readonly number[]): number => {
   return list.reduce((total, number) => total + number, 0) / list.length
 }
 
+type Node = Record<string, any>
+
 /**
  * Convert a tree structure into a flat list
  * @param childrenField The field on the `node` that contains the child nodes
  */
-export const treeToList = <T>(node: T, childrenField: string): T[] => {
-  // If the specified childrenField does not exist on the node then this code will throw an error
-  // @ts-expect-error
+export const treeToList = (node: Node, childrenField: string): Node[] => {
+  if (!node[childrenField]) {
+    return [node]
+  }
+
   return node[childrenField]
-    .flatMap((childNode: T) => treeToList(childNode, childrenField))
+    .flatMap((childNode: Node) => treeToList(childNode, childrenField))
     .concat(node)
 }
 

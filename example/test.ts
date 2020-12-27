@@ -121,7 +121,7 @@ test('treeToList', (t) => {
     id: '3',
     children: [node4],
   }
-  const node2 = { id: '2', children: [] }
+  const node2 = { id: '2' }
 
   const node1 = {
     id: '1',
