@@ -1,3 +1,5 @@
+import internalRoundTo from 'round-to'
+
 type Point = {
   readonly x: number
   readonly y: number
@@ -233,3 +235,9 @@ export const getNextItem = <T>(currentItem: T, list: T[]): T => {
   const nextIndex = (currentIndex + 1) % list.length
   return list[nextIndex]
 }
+
+// TODO: Reexport JSDoc comments
+
+export const roundTo = internalRoundTo
+export const roundDown = internalRoundTo.down
+export const roundUp = internalRoundTo.up

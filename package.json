@@ -51,5 +51,8 @@
     "tslib": "2.0.0",
     "typescript": "3.9.5",
     "xo": "0.32.0"
+  },
+  "dependencies": {
+    "round-to": "5.0.0"
   }
 }

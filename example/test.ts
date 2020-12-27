@@ -2,7 +2,6 @@ import * as tool from 'tiny-toolkit'
 import test from 'ava'
 import _ from 'lodash/fp'
 
-// Measure
 const point1 = {
   x: 10,
   y: 20,
@@ -23,7 +22,6 @@ test('getDistance', (t) => {
   t.is(distance, 28.284271247461902)
 })
 
-// Misc
 test('grid', (t) => {
   const getCell = tool.grid({
     x: 10,
@@ -166,4 +164,16 @@ test('getNextItem', (t) => {
   t.is(tool.getNextItem(list[0], list), list[1])
   t.is(tool.getNextItem(list[1], list), list[2])
   t.is(tool.getNextItem(list[2], list), list[0])
+})
+
+test('roundTo', (t) => {
+  t.is(tool.roundTo(1.234, 2), 1.23);
+})
+
+test('roundDown', (t) => {
+  t.is(tool.roundDown(1.234, 2), 1.23);
+})
+
+test('roundUp', (t) => {
+  t.is(tool.roundUp(1.234, 2), 1.24);
 })
