@@ -172,13 +172,13 @@ test('getNextItem - item does not exist in list', (t) => {
 })
 
 test('roundTo', (t) => {
-  t.is(tool.roundTo(1.234, 2), 1.23);
+  t.is(tool.roundTo(1.234, 2), 1.23)
 })
 
 test('roundDown', (t) => {
-  t.is(tool.roundDown(1.234, 2), 1.23);
+  t.is(tool.roundDown(1.234, 2), 1.23)
 })
 
 test('roundUp', (t) => {
-  t.is(tool.roundUp(1.234, 2), 1.24);
+  t.is(tool.roundUp(1.234, 2), 1.24)
 })

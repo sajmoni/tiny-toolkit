@@ -10,6 +10,7 @@ export default [
         format: 'cjs',
       },
     ],
+    external: ['round-to'],
     plugins: [typescript()],
   },
 ]
