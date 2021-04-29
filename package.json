@@ -30,9 +30,9 @@
       "node"
     ],
     "rules": {
-      "unicorn/no-process-exit": "off",
       "unicorn/filename-case": "off",
       "capitalized-comments": "off",
+      "unicorn/no-array-reduce": "off",
       "dot-notation": "off"
     }
   },
