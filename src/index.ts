@@ -1,29 +1,29 @@
 import internalRoundTo from 'round-to'
 
-type Point = {
-  readonly x: number
-  readonly y: number
+export type Point = {
+  x: number
+  y: number
 }
 
-type Vector = {
-  readonly x: number
-  readonly y: number
+export type Vector = {
+  x: number
+  y: number
 }
 
-type GridOptions = {
-  readonly x: number
-  readonly y: number
-  readonly marginX: number
-  readonly marginY: number
-  readonly breakAt: number
-  readonly vertical?: boolean
+export type GridOptions = {
+  x: number
+  y: number
+  marginX: number
+  marginY: number
+  breakAt: number
+  vertical?: boolean
 }
 
-type Rectangle = {
-  readonly x: number
-  readonly y: number
-  readonly width: number
-  readonly height: number
+export type Rectangle = {
+  x: number
+  y: number
+  width: number
+  height: number
 }
 
 /**
@@ -147,7 +147,7 @@ export const getOverlappingArea = (
   return dX * dY
 }
 
-export const getAverage = (list: readonly number[]): number => {
+export const getAverage = (list: number[]): number => {
   if (list.length === 0) {
     return 0
   }
