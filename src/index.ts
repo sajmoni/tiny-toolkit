@@ -229,9 +229,15 @@ export const getBorderingPoints = ({ x, y }: Point): Point[] => [
 
 /**
  * Get the next item in a list. Loops back to the first item after the last one.
+ * @param currentItem - An item in the list
+ * @param list
  */
 export const getNextItem = <T>(currentItem: T, list: T[]): T => {
   const currentIndex = list.indexOf(currentItem)
+  if (currentIndex === -1) {
+    throw new Error('getNextItem: Item does not exist in the list!')
+  }
+
   const nextIndex = (currentIndex + 1) % list.length
   return list[nextIndex]
 }
