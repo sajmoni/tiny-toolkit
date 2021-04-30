@@ -72,6 +72,15 @@ export const grid = ({
   }
 }
 
+/**
+ * Place items on a line
+ */
+export const line = ({ start, margin }: { start: number; margin: number }) => (
+  index: number,
+): number => {
+  return start + margin * index
+}
+
 type getValue = (t: number) => number
 
 /**

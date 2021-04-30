@@ -93,6 +93,14 @@ test('grid - vertical', (t) => {
   ])
 })
 
+test('line', (t) => {
+  const getX = tool.line({ start: 10, margin: 20 })
+
+  const result = _.times(getX, 3)
+
+  t.deepEqual(result, [10, 30, 50])
+})
+
 test('normalizeRange', (t) => {
   const getValue = tool.normalizeRange(200, 300)
   t.is(getValue(250), 0.5)
