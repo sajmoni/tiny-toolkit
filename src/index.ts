@@ -204,10 +204,10 @@ export const floorPoint = (point: Point) => ({
  *
  * @param angle - In degrees
  */
-export const getDirectionFromAngle = (angle: number) => {
+export const getDirectionFromAngle = (angle: number): Vector => {
   const inRadians = toRadians(angle)
-  const x = Number.parseFloat(Math.cos(inRadians).toFixed(5))
-  const y = Number.parseFloat(Math.sin(inRadians).toFixed(5))
+  const x = roundTo(Math.cos(inRadians), 5)
+  const y = roundTo(Math.sin(inRadians), 5)
   return { x, y }
 }
 
