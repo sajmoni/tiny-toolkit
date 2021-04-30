@@ -28,7 +28,49 @@ Get the distance between two points. Points need to be objects with an `x` and `
 
 ---
 
+```js
+tool.getDirectionFromAngle(angle)
+```
+
+Get the direction vector from an angle (in degrees).
+
+---
+
+```js
+tool.getBorderingPoints(point)
+```
+
+[4][0][5]
+
+[3][x][1]
+
+[7][2][6]
+
+---
+
 ### :heavy_division_sign::heavy_multiplication_x: Math
+
+```js
+tool.getAverage(list)
+```
+
+Get the average of a list of numbers.
+
+---
+
+```js
+tool.floorPoint(string)
+```
+
+Apply Math.floor to both x and y in a point.
+
+#### Example
+
+```js
+
+```
+
+---
 
 ```js
 tool.normalizeRange(min, max)
@@ -37,8 +79,6 @@ tool.normalizeRange(min, max)
 Turn a number range into a `0 - 1` number range.
 
 Returns a function to transform a number between `min` and `max`
-
-[Normalize to other than 0-1](#normalize-to-other-than-0-1)
 
 #### Example
 
@@ -50,6 +90,26 @@ const getOpacity = normalizeRange(min, max)
 
 getOpacity(250)
 // 0.5
+```
+
+#### Normalize to other than 0-1
+
+Multiply the output of `tool.normalizeRange` with `intended max - min`
+
+Add to the output of `tool.normalizeRange` with `intended min`
+
+##### Example with 5 - 15
+
+```js
+import * as tool from 'tiny-toolkit'
+
+const min = 200
+const max = 300
+
+const getOpacity = tool.normalize(min, max)
+
+5 + getOpacity(250) * 10
+// 10
 ```
 
 ---
@@ -96,13 +156,29 @@ tool.toRadians(angle)
 
 Convert an angle from `degrees` to `radians`
 
-<!-- ---
+---
 
 ```js
 tool.toDegrees(angle)
 ```
 
-Convert an angle from `radians` to `degrees` -->
+Convert an angle from `radians` to `degrees`
+
+---
+
+```js
+tool.roundTo(number, precision)
+```
+
+```js
+tool.roundUp(number, precision)
+```
+
+```js
+tool.roundDown(number, precision)
+```
+
+[Docs](https://github.com/sindresorhus/round-to)
 
 ---
 
@@ -114,7 +190,7 @@ tool.grid(options)
 
 Generate a function to position objects on a grid.
 
-Returns a function to get coordinates. Signature: `(index) => { x, y }`
+Returns a function to get coordinates. Signature: `(index: number) => { x, y }`
 
 #### Options
 
@@ -148,6 +224,101 @@ numbers.map(getCell)
 
 ---
 
+```js
+tool.line(options)
+```
+
+Generate a function to position objects on a line.
+
+Returns a function to get a coordinate. Signature: `(index: number) => number`
+
+#### Options
+
+| Option     | Description                      |
+| ---------- | -------------------------------- |
+| **start**  | The position of the first object |
+| **margin** | The space between each object    |
+
+#### Example
+
+```js
+import * as tool from 'tiny-toolkit'
+
+const numbers = [1, 2, 3]
+
+const getX = tool.line({
+  start: 10,
+  margin: 20,
+})
+
+numbers.map(getX)
+// [10, 30, 50]
+```
+
+---
+
+### :star: Collisions
+
+```js
+tool.isColliding(rectangle1, rectangle2)
+```
+
+Check if two rectangles are colliding.
+
+---
+
+```js
+tool.getOverlappingArea(rectangle1, rectangle2)
+```
+
+Check how much two rectangles are overlapping
+
+---
+
+### :star: Misc
+
+```js
+tool.treeToList(rootNode, childrenField)
+```
+
+Convert a tree structure into a flat list
+
+#### Example
+
+```js
+
+```
+
+---
+
+```js
+tool.capitalize(string)
+```
+
+Make the first letter in a string uppercase.
+
+#### Example
+
+```js
+
+```
+
+---
+
+```js
+tool.getNextItem(currentItem, list)
+```
+
+Get the next item in a list. Loops back to the first item after the last one.
+
+#### Example
+
+```js
+
+```
+
+---
+
 ## :computer: Install
 
 **yarn**
@@ -161,23 +332,3 @@ numbers.map(getCell)
 ---
 
 ## :book: Recipes
-
-#### Normalize to other than 0-1
-
-Multiply the output of `tool.normalizeRange` with `intended max - min`
-
-Add to the output of `tool.normalizeRange` with `intended min`
-
-##### Example with 5 - 15
-
-```js
-import * as tool from 'tiny-toolkit'
-
-const min = 200
-const max = 300
-
-const getOpacity = tool.normalize(min, max)
-
-5 + getOpacity(250) * 10
-// 10
-```
