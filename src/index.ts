@@ -266,6 +266,23 @@ export const getPreviousItem = <T>(currentItem: T, list: T[]): T => {
   return list[previousIndex]
 }
 
+export const useIndex = (maximum: number, minimum = 0) => {
+  return {
+    getNext: (index: number) => {
+      if (index + 1 > maximum) {
+        return minimum
+      }
+      return index + 1
+    },
+    getPrevious: (index: number) => {
+      if (index - 1 < minimum) {
+        return maximum
+      }
+      return index - 1
+    },
+  }
+}
+
 // jsdoc comments copied from round-to since they are not reexported automatically
 
 /**

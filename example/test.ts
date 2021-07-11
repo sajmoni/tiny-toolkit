@@ -186,6 +186,20 @@ test('getPreviousItem', (t) => {
   t.is(tool.getPreviousItem(list[2], list), list[1])
 })
 
+test('useIndex', (t) => {
+  const { getNext, getPrevious } = tool.useIndex(10)
+  t.is(getNext(0), 1)
+  t.is(getNext(1), 2)
+  t.is(getNext(10), 0)
+  t.is(getPrevious(0), 10)
+  t.is(getPrevious(1), 0)
+  t.is(getPrevious(10), 9)
+
+  // Out of bounds
+  t.is(getNext(1000), 0)
+  t.is(getPrevious(-1000), 10)
+})
+
 test('roundTo', (t) => {
   t.is(tool.roundTo(1.234, 2), 1.23)
 })
