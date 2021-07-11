@@ -255,6 +255,17 @@ export const getNextItem = <T>(currentItem: T, list: T[]): T => {
   return list[nextIndex]
 }
 
+export const getPreviousItem = <T>(currentItem: T, list: T[]): T => {
+  const currentIndex = list.indexOf(currentItem)
+  if (currentIndex === -1) {
+    throw new Error('getPreviousItem: Item does not exist in the list!')
+  }
+
+  const previousIndex =
+    currentIndex - 1 < 0 ? list.length - 1 : currentIndex - 1
+  return list[previousIndex]
+}
+
 // jsdoc comments copied from round-to since they are not reexported automatically
 
 /**

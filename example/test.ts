@@ -179,6 +179,13 @@ test('getNextItem - item does not exist in list', (t) => {
   t.throws(() => tool.getNextItem({ id: 3 }, list))
 })
 
+test('getPreviousItem', (t) => {
+  const list = [{ id: 0 }, { id: 1 }, { id: 2 }]
+  t.is(tool.getPreviousItem(list[0], list), list[2])
+  t.is(tool.getPreviousItem(list[1], list), list[0])
+  t.is(tool.getPreviousItem(list[2], list), list[1])
+})
+
 test('roundTo', (t) => {
   t.is(tool.roundTo(1.234, 2), 1.23)
 })
