@@ -39,7 +39,7 @@
   "scripts": {
     "clean": "rm -f tiny-toolkit.tgz",
     "go": "./build-test.sh",
-    "release": "yarn clean && yarn audit && yarn build && np --no-tests",
+    "release": "yarn clean && yarn build && np --no-tests",
     "test": "xo && ava",
     "lint": "eslint src/index.js",
     "build": "rm -rf dist && rollup --config"
