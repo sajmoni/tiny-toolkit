@@ -45,11 +45,9 @@
     }
   },
   "scripts": {
-    "clean": "rm -f tiny-toolkit.tgz",
-    "go": "yarn build && preview && ava",
-    "release": "yarn clean && yarn build && np --no-tests",
+    "go": "npm run build && preview && ava",
+    "release": "npm run build && np --no-tests",
     "test": "ava",
-    "lint": "eslint src/index.js",
     "build": "rm -rf dist && tsc"
   },
   "devDependencies": {
