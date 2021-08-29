@@ -285,6 +285,33 @@ export const useIndex = (maximum: number, minimum = 0) => {
   }
 }
 
+type Coordinate = {
+  x: number
+  y: number
+  distanceToCenter: number
+}
+
+export const create2DArrayWithDistanceToCenter = (
+  width: number,
+  height: number,
+): Coordinate[] => {
+  const halfWidth = width / 2
+  const halfHeight = height / 2
+
+  const coordinates = []
+
+  for (let x = 0; x < width; x += 1) {
+    for (let y = 0; y < height; y += 1) {
+      const xDistance = Math.abs(x - halfWidth)
+      const yDistance = Math.abs(y - halfHeight)
+      const distanceToCenter = Math.sqrt(xDistance ** 2 + yDistance ** 2)
+      coordinates.push({ distanceToCenter, x, y })
+    }
+  }
+
+  return coordinates
+}
+
 // jsdoc comments copied from round-to since they are not reexported automatically
 
 /**

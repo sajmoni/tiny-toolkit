@@ -200,7 +200,21 @@ test('useIndex', (t) => {
   t.is(getPrevious(-1000), 10)
 })
 
-test.todo('create2DArrayWithDistanceToCenter')
+test('create2DArrayWithDistanceToCenter', (t) => {
+  const coordinates = tool.create2DArrayWithDistanceToCenter(3, 3)
+
+  t.deepEqual(coordinates, [
+    { distanceToCenter: 2.1213203435596424, x: 0, y: 0 },
+    { distanceToCenter: 1.5811388300841898, x: 0, y: 1 },
+    { distanceToCenter: 1.5811388300841898, x: 0, y: 2 },
+    { distanceToCenter: 1.5811388300841898, x: 1, y: 0 },
+    { distanceToCenter: 0.7071067811865476, x: 1, y: 1 },
+    { distanceToCenter: 0.7071067811865476, x: 1, y: 2 },
+    { distanceToCenter: 1.5811388300841898, x: 2, y: 0 },
+    { distanceToCenter: 0.7071067811865476, x: 2, y: 1 },
+    { distanceToCenter: 0.7071067811865476, x: 2, y: 2 },
+  ])
+})
 
 test('roundTo', (t) => {
   t.is(tool.roundTo(1.234, 2), 1.23)
