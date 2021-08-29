@@ -190,14 +190,24 @@ test('useIndex', (t) => {
   const { getNext, getPrevious } = tool.useIndex(10)
   t.is(getNext(0), 1)
   t.is(getNext(1), 2)
-  t.is(getNext(10), 0)
-  t.is(getPrevious(0), 10)
+  t.is(getNext(9), 0)
+  t.is(getPrevious(0), 9)
   t.is(getPrevious(1), 0)
   t.is(getPrevious(10), 9)
 
   // Out of bounds
   t.is(getNext(1000), 0)
-  t.is(getPrevious(-1000), 10)
+  t.is(getPrevious(-1000), 9)
+})
+
+test('useIndex - loop === false', (t) => {
+  const { getNext, getPrevious } = tool.useIndex(10, { loop: false })
+  t.is(getNext(9), 9)
+  t.is(getPrevious(0), 0)
+
+  // Out of bounds
+  t.is(getNext(1000), 1000)
+  t.is(getPrevious(-1000), -1000)
 })
 
 test('create2DArrayWithDistanceToCenter', (t) => {

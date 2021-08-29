@@ -268,17 +268,19 @@ export const getPreviousItem = <T>(currentItem: T, list: T[]): T => {
   return list[previousIndex]
 }
 
-export const useIndex = (maximum: number, minimum = 0) => {
+export const useIndex = (maximum: number, options: { loop?: boolean } = {}) => {
+  const { loop = true } = options
+  const minimum = 0
   return {
     getNext: (index: number) => {
-      if (index + 1 > maximum) {
-        return minimum
+      if (index + 1 > maximum - 1) {
+        return loop ? minimum : index
       }
       return index + 1
     },
     getPrevious: (index: number) => {
       if (index - 1 < minimum) {
-        return maximum
+        return loop ? maximum - 1 : index
       }
       return index - 1
     },
