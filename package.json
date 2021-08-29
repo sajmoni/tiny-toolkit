@@ -1,6 +1,6 @@
 {
   "name": "tiny-toolkit",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "A tiny collection of useful javascript game dev tools",
   "main": "./dist/index.js",
   "files": [
