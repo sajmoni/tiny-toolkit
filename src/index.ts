@@ -56,30 +56,32 @@ type getCell = (index: number) => Point
 /**
  * Generate a grid
  */
-export const grid = ({
-  x,
-  y,
-  marginX,
-  marginY,
-  breakAt,
-  vertical = false,
-}: GridOptions): getCell => (index) => {
-  const row = Math.floor(index / breakAt)
-  const column = index % breakAt
-  return {
-    x: x + (vertical ? row : column) * marginX,
-    y: y + (vertical ? column : row) * marginY,
+export const grid =
+  ({
+    x,
+    y,
+    marginX,
+    marginY,
+    breakAt,
+    vertical = false,
+  }: GridOptions): getCell =>
+  (index) => {
+    const row = Math.floor(index / breakAt)
+    const column = index % breakAt
+    return {
+      x: x + (vertical ? row : column) * marginX,
+      y: y + (vertical ? column : row) * marginY,
+    }
   }
-}
 
 /**
  * Place items on a line
  */
-export const line = ({ start, margin }: { start: number; margin: number }) => (
-  index: number,
-): number => {
-  return start + margin * index
-}
+export const line =
+  ({ start, margin }: { start: number; margin: number }) =>
+  (index: number): number => {
+    return start + margin * index
+  }
 
 type getValue = (t: number) => number
 

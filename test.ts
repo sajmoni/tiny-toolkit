@@ -1,6 +1,6 @@
 import * as tool from 'tiny-toolkit'
 import test from 'ava'
-import _ from 'lodash/fp'
+import * as R from 'remeda'
 
 const point1 = {
   x: 10,
@@ -31,7 +31,7 @@ test('grid', (t) => {
     breakAt: 3,
   })
 
-  const result = _.times(getCell, 5)
+  const result = R.times(5, getCell)
 
   t.deepEqual(result, [
     {
@@ -67,7 +67,7 @@ test('grid - vertical', (t) => {
     vertical: true,
   })
 
-  const result = _.times(getCell, 5)
+  const result = R.times(5, getCell)
 
   t.deepEqual(result, [
     {
@@ -96,7 +96,7 @@ test('grid - vertical', (t) => {
 test('line', (t) => {
   const getX = tool.line({ start: 10, margin: 20 })
 
-  const result = _.times(getX, 3)
+  const result = R.times(3, getX)
 
   t.deepEqual(result, [10, 30, 50])
 })
@@ -199,6 +199,8 @@ test('useIndex', (t) => {
   t.is(getNext(1000), 0)
   t.is(getPrevious(-1000), 10)
 })
+
+test.todo('create2DArrayWithDistanceToCenter')
 
 test('roundTo', (t) => {
   t.is(tool.roundTo(1.234, 2), 1.23)
