@@ -314,6 +314,17 @@ export const create2DArrayWithDistanceToCenter = (
   return coordinates
 }
 
+/**
+ * Remove an item from a list by mutating the list
+ *
+ * @param item
+ * @param list
+ */
+export const removeFromList = <T>(item: T, list: T[]): void => {
+  const index = list.indexOf(item)
+  list.splice(index, 1)
+}
+
 // jsdoc comments copied from round-to since they are not reexported automatically
 
 /**

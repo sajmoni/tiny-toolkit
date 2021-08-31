@@ -226,6 +226,12 @@ test('create2DArrayWithDistanceToCenter', (t) => {
   ])
 })
 
+test('removeFromList', (t) => {
+  const list = [{ id: 0 }, { id: 1 }, { id: 2 }]
+  tool.removeFromList(list[0], list)
+  t.deepEqual(list, [{ id: 1 }, { id: 2 }])
+})
+
 test('roundTo', (t) => {
   t.is(tool.roundTo(1.234, 2), 1.23)
 })
