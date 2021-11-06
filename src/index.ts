@@ -172,7 +172,7 @@ type Node = Record<string, any>
  * Convert a tree structure into a flat list
  * @param childrenField The field on the `node` that contains the child nodes
  */
-export const treeToList = (node: Node, childrenField: string): Node[] => {
+export const treeToList = (node: Node, childrenField = 'children'): Node[] => {
   if (!node[childrenField]) {
     return [node]
   }
