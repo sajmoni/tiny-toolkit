@@ -339,6 +339,29 @@ export const squareLoop = (
   }
 }
 
+/**
+ * Based on a point, get a surrounding rectangle with the point in the middle
+ */
+export const getSurroundingRectangle = ({
+  point,
+  width,
+  height,
+}: {
+  point: Point
+  width: number
+  height: number
+}): Rectangle => {
+  const x = point.x - Math.floor(width / 2)
+  const y = point.y - Math.floor(height / 2)
+
+  return {
+    x,
+    y,
+    width,
+    height,
+  }
+}
+
 // jsdoc comments copied from round-to since they are not reexported automatically
 
 /**

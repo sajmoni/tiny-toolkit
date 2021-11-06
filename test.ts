@@ -233,7 +233,7 @@ test('removeFromList', (t) => {
 })
 
 test('squareLoop', (t) => {
-  let results: Array<{ x: number; y: number; index: number }> = []
+  const results: Array<{ x: number; y: number; index: number }> = []
   tool.squareLoop(2, 3, (x, y, index) => {
     results.push({ x, y, index })
   })
@@ -246,6 +246,23 @@ test('squareLoop', (t) => {
     { x: 1, y: 2, index: 5 },
   ]
   t.deepEqual(results, expectedResults)
+})
+
+test('getSurroundingRectangle', (t) => {
+  const result = tool.getSurroundingRectangle({
+    point: { x: 10, y: 12 },
+    width: 6,
+    height: 8,
+  })
+
+  const expectedResult = {
+    x: 7,
+    y: 8,
+    width: 6,
+    height: 8,
+  }
+
+  t.deepEqual(result, expectedResult)
 })
 
 test('roundTo', (t) => {
