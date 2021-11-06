@@ -232,6 +232,22 @@ test('removeFromList', (t) => {
   t.deepEqual(list, [{ id: 1 }, { id: 2 }])
 })
 
+test('squareLoop', (t) => {
+  let results: Array<{ x: number; y: number; index: number }> = []
+  tool.squareLoop(2, 3, (x, y, index) => {
+    results.push({ x, y, index })
+  })
+  const expectedResults = [
+    { x: 0, y: 0, index: 0 },
+    { x: 0, y: 1, index: 1 },
+    { x: 0, y: 2, index: 2 },
+    { x: 1, y: 0, index: 3 },
+    { x: 1, y: 1, index: 4 },
+    { x: 1, y: 2, index: 5 },
+  ]
+  t.deepEqual(results, expectedResults)
+})
+
 test('roundTo', (t) => {
   t.is(tool.roundTo(1.234, 2), 1.23)
 })

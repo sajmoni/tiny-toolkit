@@ -325,6 +325,20 @@ export const removeFromList = <T>(item: T, list: T[]): void => {
   list.splice(index, 1)
 }
 
+export const squareLoop = (
+  xTimes: number,
+  yTimes: number,
+  callback: (x: number, y: number, index: number) => void,
+) => {
+  let index = 0
+  for (let x = 0; x < xTimes; x++) {
+    for (let y = 0; y < yTimes; y++) {
+      callback(x, y, index)
+      index += 1
+    }
+  }
+}
+
 // jsdoc comments copied from round-to since they are not reexported automatically
 
 /**
