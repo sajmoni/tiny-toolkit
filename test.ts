@@ -265,6 +265,18 @@ test('getSurroundingRectangle', (t) => {
   t.deepEqual(result, expectedResult)
 })
 
+test('isColliding', (t) => {
+  const rectangle1 = {
+    x: 580.5563491861042,
+    y: 523.5563491861042,
+    width: 10,
+    height: 10,
+  }
+  const rectangle2 = { x: 575, y: 525, width: 50, height: 50 }
+
+  t.is(tool.foo(rectangle1, rectangle2), true)
+})
+
 test('roundTo', (t) => {
   t.is(tool.roundTo(1.234, 2), 1.23)
 })
