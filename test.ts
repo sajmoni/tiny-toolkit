@@ -274,7 +274,7 @@ test('isColliding', (t) => {
   }
   const rectangle2 = { x: 575, y: 525, width: 50, height: 50 }
 
-  t.is(tool.foo(rectangle1, rectangle2), true)
+  t.is(tool.isColliding(rectangle1, rectangle2), true)
 })
 
 test('roundTo', (t) => {

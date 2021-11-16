@@ -124,7 +124,7 @@ export const isColliding = (
 ): boolean => {
   if (
     rectangle1.x > rectangle2.x + rectangle2.width ||
-    rectangle2.x > rectangle1.x + rectangle2.width
+    rectangle2.x > rectangle1.x + rectangle1.width
   )
     return false
 
