@@ -38,6 +38,8 @@
       "node"
     ],
     "rules": {
+      "unicorn/numeric-separators-style": "off",
+      "arrow-body-style": "off",
       "unicorn/filename-case": "off",
       "capitalized-comments": "off",
       "unicorn/no-array-reduce": "off",

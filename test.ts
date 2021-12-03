@@ -13,7 +13,7 @@ const point2 = {
 }
 
 test('getAngle', (t) => {
-  const angle = tool.getAngle(point1, point2)
+  const angle = tool.getAngle(point2, point1)
   t.is(angle, 3.9269908169872414)
 })
 

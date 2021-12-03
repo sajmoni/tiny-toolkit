@@ -29,10 +29,9 @@ export type Rectangle = {
 /**
  * Get the angle in radians between two points
  */
-export const getAngle = (
-  { x: x1, y: y1 }: Point,
-  { x: x2, y: y2 }: Point,
-): number => {
+export const getAngle = (origin: Point, target: Point): number => {
+  const { x: x1, y: y1 } = target
+  const { x: x2, y: y2 } = origin
   const xDistance = x2 - x1
   const yDistance = y2 - y1
   const angle = Math.atan(yDistance / xDistance)
