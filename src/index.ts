@@ -202,7 +202,7 @@ export const capitalize = (string: string): string => {
  * @param point
  * @returns
  */
-export const floorPoint = (point: Point) => ({
+export const floorPoint = (point: Point): Point => ({
   x: Math.floor(point.x),
   y: Math.floor(point.y),
 })
@@ -273,17 +273,17 @@ export const getPreviousItem = <T>(currentItem: T, list: T[]): T => {
   return list[previousIndex]
 }
 
-export const useIndex = (maximum: number, options: { loop?: boolean } = {}) => {
+export const useIndex = (maximum: number, options: { loop?: boolean } = {}): => {
   const { loop = true } = options
   const minimum = 0
   return {
-    getNext: (index: number) => {
+    getNext: (index: number): number => {
       if (index + 1 > maximum - 1) {
         return loop ? minimum : index
       }
       return index + 1
     },
-    getPrevious: (index: number) => {
+    getPrevious: (index: number): number => {
       if (index - 1 < minimum) {
         return loop ? maximum - 1 : index
       }
