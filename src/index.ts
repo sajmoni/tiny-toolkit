@@ -210,12 +210,11 @@ export const floorPoint = (point: Point) => ({
 /**
  * Capped at 5 decimal points
  *
- * @param angle - In degrees
+ * @param angle - In radians
  */
 export const getDirectionFromAngle = (angle: number): Vector => {
-  const inRadians = toRadians(angle)
-  const x = roundTo(Math.cos(inRadians), 5)
-  const y = roundTo(Math.sin(inRadians), 5)
+  const x = roundTo(Math.cos(angle), 5)
+  const y = roundTo(Math.sin(angle), 5)
   return { x, y }
 }
 

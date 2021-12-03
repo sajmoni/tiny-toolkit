@@ -146,11 +146,14 @@ test('floorPoint', (t) => {
 })
 
 test('getDirectionFromAngle', (t) => {
-  t.deepEqual(tool.getDirectionFromAngle(0), { x: 1, y: 0 })
-  t.deepEqual(tool.getDirectionFromAngle(45), { x: 0.70711, y: 0.70711 })
-  t.deepEqual(tool.getDirectionFromAngle(90), { x: 0, y: 1 })
-  t.deepEqual(tool.getDirectionFromAngle(180), { x: -1, y: 0 })
-  t.deepEqual(tool.getDirectionFromAngle(270), { x: -0, y: -1 })
+  t.deepEqual(tool.getDirectionFromAngle(tool.toRadians(0)), { x: 1, y: 0 })
+  t.deepEqual(tool.getDirectionFromAngle(tool.toRadians(45)), {
+    x: 0.70711,
+    y: 0.70711,
+  })
+  t.deepEqual(tool.getDirectionFromAngle(tool.toRadians(90)), { x: 0, y: 1 })
+  t.deepEqual(tool.getDirectionFromAngle(tool.toRadians(180)), { x: -1, y: 0 })
+  t.deepEqual(tool.getDirectionFromAngle(tool.toRadians(270)), { x: -0, y: -1 })
 })
 
 test('getBorderingPoints', (t) => {
