@@ -50,7 +50,7 @@ export const getDistance = (
   { x: x2, y: y2 }: Point,
 ): number => Math.hypot(Math.abs(x2 - x1), Math.abs(y2 - y1))
 
-type getCell = (index: number) => Point
+type GetCell = (index: number) => Point
 
 /**
  * Generate a grid
@@ -63,7 +63,7 @@ export const grid =
     marginY,
     breakAt,
     vertical = false,
-  }: GridOptions): getCell =>
+  }: GridOptions): GetCell =>
   (index) => {
     const row = Math.floor(index / breakAt)
     const column = index % breakAt
@@ -82,14 +82,14 @@ export const line =
     return start + margin * index
   }
 
-type getValue = (t: number) => number
+type GetValue = (inRange: number) => number
 
 /**
  * Normalize range
  */
-export const normalizeRange = (min: number, max: number): getValue => {
-  const delta = max - min
-  return (t) => (t - min) / delta
+export const normalizeRange = (minimum: number, maximum: number): GetValue => {
+  const delta = maximum - minimum
+  return (inRange) => (inRange - minimum) / delta
 }
 
 /**
@@ -273,7 +273,7 @@ export const getPreviousItem = <T>(currentItem: T, list: T[]): T => {
   return list[previousIndex]
 }
 
-export const useIndex = (maximum: number, options: { loop?: boolean } = {}): => {
+export const useIndex = (maximum: number, options: { loop?: boolean } = {}) => {
   const { loop = true } = options
   const minimum = 0
   return {
@@ -281,12 +281,14 @@ export const useIndex = (maximum: number, options: { loop?: boolean } = {}): => 
       if (index + 1 > maximum - 1) {
         return loop ? minimum : index
       }
+
       return index + 1
     },
     getPrevious: (index: number): number => {
       if (index - 1 < minimum) {
         return loop ? maximum - 1 : index
       }
+
       return index - 1
     },
   }
