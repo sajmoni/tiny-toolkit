@@ -367,6 +367,17 @@ export const getSurroundingRectangle = ({
   }
 }
 
+/**
+ * Example:
+ * CreateTypeFromObject<typeof anyObject>
+ * Use only the keys:
+ * CreateTypeFromObject<keyof typeof anyObject>
+ * { foo: 'bar', foo2: 'bar2' } => 'foo' | 'foo2'
+ */
+export type CreateTypeFromObject<T> = {
+  [P in keyof T]: T[P] extends string ? T[P] : never
+}
+
 // jsdoc comments copied from round-to since they are not reexported automatically
 
 /**
