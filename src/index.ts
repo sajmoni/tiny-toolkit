@@ -164,14 +164,6 @@ export const getOverlappingArea = (
   return dX * dY
 }
 
-export const getAverage = (list: number[]): number => {
-  if (list.length === 0) {
-    return 0
-  }
-
-  return list.reduce((total, number) => total + number, 0) / list.length
-}
-
 type Node = Record<string, any>
 
 /**
