@@ -279,3 +279,13 @@ test('isColliding', (t) => {
 
   t.is(tool.isColliding(rectangle1, rectangle2), true)
 })
+
+test('getDirection - 1', (t) => {
+  const result = tool.getDirection({ x: 10, y: 10 }, { x: 15, y: 20 })
+  t.deepEqual(result, { x: 0.44721, y: 0.89443 })
+})
+
+test('getDirection - 2', (t) => {
+  const result = tool.getDirection({ x: 10, y: 10 }, { x: 3, y: -7 })
+  t.deepEqual(result, { x: -0.38075, y: -0.92468 })
+})

@@ -199,6 +199,10 @@ export const floorPoint = (point: Point): Point => ({
   y: Math.floor(point.y),
 })
 
+export const getDirection = (origin: Point, target: Point): Vector => {
+  return getDirectionFromAngle(getAngle(origin, target))
+}
+
 /**
  * Capped at 5 decimal points
  *
