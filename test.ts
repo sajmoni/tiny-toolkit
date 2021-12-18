@@ -289,3 +289,7 @@ test('getDirection - 2', (t) => {
   const result = tool.getDirection({ x: 10, y: 10 }, { x: 3, y: -7 })
   t.deepEqual(result, { x: -0.38075, y: -0.92468 })
 })
+
+test('getAverage', (t) => {
+  t.is(tool.getAverage([1, 3]), 2)
+})

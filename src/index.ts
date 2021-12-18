@@ -383,3 +383,20 @@ export type CreateTypeFromObject<T> = {
  */
 export const clampToTarget = (value: number, target: number): number =>
   Math.floor(value / target)
+
+/**
+ * Get the average of a list of numbers
+ */
+export const getAverage = (values: number[]): number => {
+  if (values.length === 0) {
+    return 0
+  }
+
+  let sum = 0
+
+  for (const value of values) {
+    sum += value
+  }
+
+  return sum / values.length
+}
