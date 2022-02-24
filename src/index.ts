@@ -93,18 +93,6 @@ export const normalizeRange = (minimum: number, maximum: number): GetValue => {
 }
 
 /**
- * Normalize vector
- */
-export const normalizeVector = ({ x, y }: Vector): Vector => {
-  const magnitude = Math.sqrt(x ** 2 + y ** 2)
-  return {
-    // * Magnitude can be 0, can't divide with that
-    x: x / magnitude || 0,
-    y: y / magnitude || 0,
-  }
-}
-
-/**
  * Convert degrees to radians
  */
 export const toRadians = (degrees: number): number => degrees * (Math.PI / 180)
@@ -188,16 +176,6 @@ export const treeToList = (node: Node, childrenField = 'children'): Node[] => {
 export const capitalize = (string: string): string => {
   return string.charAt(0).toUpperCase() + string.slice(1)
 }
-
-/**
- * Apply Math.floor to both x and y in a point
- * @param point
- * @returns
- */
-export const floorPoint = (point: Point): Point => ({
-  x: Math.floor(point.x),
-  y: Math.floor(point.y),
-})
 
 export const getDirection = (origin: Point, target: Point): Vector => {
   return getDirectionFromAngle(getAngle(origin, target))

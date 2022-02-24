@@ -107,12 +107,6 @@ test('normalizeRange', (t) => {
   t.is(5 + getValue(250) * 10, 10)
 })
 
-test('normalizeVector', (t) => {
-  const vector = { x: 1, y: 1 }
-  const result = tool.normalizeVector(vector)
-  t.deepEqual(result, { x: 0.7071067811865475, y: 0.7071067811865475 })
-})
-
 test('toRadians', (t) => {
   const radians = tool.toRadians(90)
   t.is(radians, Math.PI / 2)
@@ -139,10 +133,6 @@ test('treeToList', (t) => {
 
 test('capitalize', (t) => {
   t.is(tool.capitalize('hello'), 'Hello')
-})
-
-test('floorPoint', (t) => {
-  t.deepEqual(tool.floorPoint({ x: 5.4656, y: 4.999 }), { x: 5, y: 4 })
 })
 
 test('getDirectionFromAngle', (t) => {
