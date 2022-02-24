@@ -225,11 +225,14 @@ test('removeFromList', (t) => {
   t.deepEqual(list, [{ id: 1 }, { id: 2 }])
 })
 
-test('squareLoop', (t) => {
-  const results: Array<{ x: number; y: number; index: number }> = []
-  tool.squareLoop(2, 3, (x, y, index) => {
-    results.push({ x, y, index })
-  })
+test('times2d', (t) => {
+  const results: Array<{ x: number; y: number; index: number }> = tool.times2d(
+    2,
+    3,
+    (x, y, index) => {
+      return { x, y, index }
+    },
+  )
   const expectedResults = [
     { x: 0, y: 0, index: 0 },
     { x: 0, y: 1, index: 1 },
