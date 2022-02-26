@@ -31,6 +31,12 @@
     - [treeToList](#treetolist)
     - [capitalize](#capitalize)
     - [getNextItem](#getnextitem)
+    - [getPreviousItem](#getpreviousitem)
+    - [times2d](#times2d)
+    - [getSurroundingRectangle](#getsurroundingrectangle)
+    - [treeToList](#treetolist-1)
+    - [useIndex](#useindex)
+    - [create2dArrayWithDistanceToCenter](#create2darraywithdistancetocenter)
 - [:computer: Install](#computer-install)
 
 ## :sparkles: Features
@@ -40,7 +46,7 @@
 #### getAngle
 
 ```ts
-tool.getAngle(origin: Point, target: Point) => number
+getAngle(origin: Point, target: Point) => number
 ```
 
 Get the angle (in radians) between two points
@@ -49,8 +55,8 @@ Get the angle (in radians) between two points
 
 #### getDistance
 
-```js
-tool.getDistance(origin: Point, target: Point) => number
+```ts
+getDistance(origin: Point, target: Point) => number
 ```
 
 Get the distance between two points
@@ -69,7 +75,7 @@ Get the direction vector from one point to another
 
 #### getDirectionFromAngle
 
-```js
+```ts
 getDirectionFromAngle(angle: number) => Vector
 ```
 
@@ -79,7 +85,7 @@ Get the direction vector from an angle (in radians)
 
 #### getBorderingPoints
 
-```js
+```ts
 getBorderingPoints(point: Point) => Point[]
 ```
 
@@ -99,7 +105,7 @@ The numbers below represent the indexes of points in the array
 
 #### normalizeRange
 
-```js
+```ts
 normalizeRange(minimum: number, maximum: number) => (value: number) => number
 ```
 
@@ -109,7 +115,7 @@ Returns a function to transform a number between `minimum` and `maximum`
 
 #### Example <!-- omit in toc -->
 
-```js
+```ts
 const min = 200
 const max = 300
 
@@ -121,19 +127,19 @@ getOpacity(250)
 
 #### Normalize to other than 0-1 <!-- omit in toc -->
 
-Multiply the output of `tool.normalizeRange` with `intended max - min`
+Multiply the output of `normalizeRange` with `intended max - min`
 
-Add to the output of `tool.normalizeRange` with `intended min`
+Add to the output of `normalizeRange` with `intended min`
 
 ##### Example with 5 - 15 <!-- omit in toc -->
 
-```js
+```ts
 import * as tool from 'tiny-toolkit'
 
 const min = 200
 const max = 300
 
-const getOpacity = tool.normalize(min, max)
+const getOpacity = normalize(min, max)
 
 5 + getOpacity(250) * 10
 // 10
@@ -143,8 +149,8 @@ const getOpacity = tool.normalize(min, max)
 
 #### toRadians
 
-```js
-tool.toRadians(angle)
+```ts
+toRadians(angle)
 ```
 
 Convert an angle from `degrees` to `radians`
@@ -153,8 +159,8 @@ Convert an angle from `degrees` to `radians`
 
 #### toDegrees
 
-```js
-tool.toDegrees(angle)
+```ts
+toDegrees(angle)
 ```
 
 Convert an angle from `radians` to `degrees`
@@ -165,8 +171,8 @@ Convert an angle from `radians` to `degrees`
 
 #### grid
 
-```js
-tool.grid(options)
+```ts
+grid(options)
 ```
 
 Generate a function to position objects on a grid.
@@ -186,12 +192,12 @@ Returns a function to get coordinates. Signature: `(index: number) => { x, y }`
 
 #### Example <!-- omit in toc -->
 
-```js
+```ts
 import * as tool from 'tiny-toolkit'
 
 const numbers = [1, 2, 3]
 
-const getCell = tool.grid({
+const getCell = grid({
   x: 10,
   y: 10,
   marginX: 10,
@@ -207,8 +213,8 @@ numbers.map(getCell)
 
 #### line
 
-```js
-tool.line(options)
+```ts
+line(options)
 ```
 
 Generate a function to position objects on a line.
@@ -224,12 +230,12 @@ Returns a function to get a coordinate. Signature: `(index: number) => number`
 
 #### Example <!-- omit in toc -->
 
-```js
+```ts
 import * as tool from 'tiny-toolkit'
 
 const numbers = [1, 2, 3]
 
-const getX = tool.line({
+const getX = line({
   start: 10,
   margin: 20,
 })
@@ -244,8 +250,8 @@ numbers.map(getX)
 
 #### isColliding
 
-```js
-tool.isColliding(rectangle1, rectangle2)
+```ts
+isColliding(rectangle1, rectangle2)
 ```
 
 Check if two rectangles are colliding.
@@ -254,8 +260,8 @@ Check if two rectangles are colliding.
 
 #### getOverlappingArea
 
-```js
-tool.getOverlappingArea(rectangle1, rectangle2)
+```ts
+getOverlappingArea(rectangle1, rectangle2)
 ```
 
 Check how much two rectangles are overlapping
@@ -266,15 +272,15 @@ Check how much two rectangles are overlapping
 
 #### treeToList
 
-```js
-tool.treeToList(rootNode: Node, childrenField?: string = 'children') => Node[]
+```ts
+treeToList(rootNode: Node, childrenField?: string = 'children') => Node[]
 ```
 
 Convert a tree structure into a flat list
 
 #### Example <!-- omit in toc -->
 
-```js
+```ts
 
 ```
 
@@ -282,15 +288,15 @@ Convert a tree structure into a flat list
 
 #### capitalize
 
-```js
-tool.capitalize(string)
+```ts
+capitalize(text: string)
 ```
 
 Make the first letter in a string uppercase.
 
 #### Example <!-- omit in toc -->
 
-```js
+```ts
 
 ```
 
@@ -298,17 +304,61 @@ Make the first letter in a string uppercase.
 
 #### getNextItem
 
-```js
-tool.getNextItem(currentItem, list)
+```ts
+getNextItem(currentItem, list)
 ```
 
 Get the next item in a list. Loops back to the first item after the last one.
 
 #### Example <!-- omit in toc -->
 
-```js
+```ts
 
 ```
+
+---
+
+#### getPreviousItem
+
+```ts
+getPreviousItem(currentItem, list)
+```
+
+Get the previous item in a list. Loops back to the last item after the first one.
+
+#### Example <!-- omit in toc -->
+
+```ts
+
+```
+
+---
+
+#### times2d
+
+```ts
+times2d(xTimes: number, yTimes: number, callback: (x: number, y: number, index: number) => T) => T[]
+```
+
+> Two dimensional loop. Like lodash `times` but 2d.
+
+---
+
+#### getSurroundingRectangle
+
+```ts
+getSurroundingRectangle(point: Point, width: number, height: number) => Rectangle
+```
+
+> Get the rectangle surrounding a point
+
+---
+
+#### treeToList
+
+#### useIndex
+
+#### create2dArrayWithDistanceToCenter
 
 ---
 
