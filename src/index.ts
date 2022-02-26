@@ -74,7 +74,7 @@ export const grid =
   }
 
 /**
- * Place items on a line
+ * Create a function to place items on a line
  */
 export const line =
   ({ start, margin }: { start: number; margin: number }) =>
@@ -343,17 +343,6 @@ export const getSurroundingRectangle = ({
     width,
     height,
   }
-}
-
-/**
- * Example:
- * CreateTypeFromObject<typeof anyObject>
- * Use only the keys:
- * CreateTypeFromObject<keyof typeof anyObject>
- * { foo: 'bar', foo2: 'bar2' } => 'foo' | 'foo2'
- */
-export type CreateTypeFromObject<T> = {
-  [P in keyof T]: T[P] extends string ? T[P] : never
 }
 
 /**
