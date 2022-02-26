@@ -274,7 +274,7 @@ type Coordinate = {
   distanceToCenter: number
 }
 
-export const create2DArrayWithDistanceToCenter = (
+export const create2dArrayWithDistanceToCenter = (
   width: number,
   height: number,
 ): Coordinate[] => {
@@ -319,6 +319,7 @@ export const times2d = <T>(
       index += 1
     }
   }
+
   return result
 }
 
