@@ -1,6 +1,6 @@
-# :wrench: Tiny Toolkit
+# :wrench: Tiny Toolkit <!-- omit in toc -->
 
-> A collection of useful tiny javascript functions
+> A collection of useful tiny JavaScript functions
 
 <div align="center">
   <img src="https://badgen.net/npm/v/tiny-toolkit?icon=npm" />
@@ -8,79 +8,106 @@
   <img src="https://badgen.net/github/last-commit/sajmoni/tiny-toolkit?icon=github" />
 </div>
 
+## Index <!-- omit in toc -->
+
+- [:sparkles: Features](#sparkles-features)
+  - [:straight_ruler: Measure](#straight_ruler-measure)
+    - [getAngle](#getangle)
+    - [getDistance](#getdistance)
+    - [getDirection](#getdirection)
+    - [getDirectionFromAngle](#getdirectionfromangle)
+    - [getBorderingPoints](#getborderingpoints)
+  - [:heavy_division_sign::heavy_multiplication_x: Math](#heavy_division_signheavy_multiplication_x-math)
+    - [normalizeRange](#normalizerange)
+    - [toRadians](#toradians)
+    - [toDegrees](#todegrees)
+  - [:iphone: Layout](#iphone-layout)
+    - [grid](#grid)
+    - [line](#line)
+  - [:star: Collisions](#star-collisions)
+    - [isColliding](#iscolliding)
+    - [getOverlappingArea](#getoverlappingarea)
+  - [:star: Misc](#star-misc)
+    - [treeToList](#treetolist)
+    - [capitalize](#capitalize)
+    - [getNextItem](#getnextitem)
+- [:computer: Install](#computer-install)
+
 ## :sparkles: Features
 
 ### :straight_ruler: Measure
 
-```js
-tool.getAngle(point1, point2)
+#### getAngle
+
+```ts
+tool.getAngle(origin: Point, target: Point) => number
 ```
 
-Get the angle (in radians) between two points. Points need to be objects with an `x` and `y` field.
+Get the angle (in radians) between two points
 
 ---
 
+#### getDistance
+
 ```js
-tool.getDistance(point1, point2)
+tool.getDistance(origin: Point, target: Point) => number
 ```
 
-Get the distance between two points. Points need to be objects with an `x` and `y` field.
+Get the distance between two points
 
 ---
 
-```js
-tool.getDirectionFromAngle(angle)
+#### getDirection
+
+```ts
+getDirection(origin: Point, target: Point) => Vector
 ```
 
-Get the direction vector from an angle (in degrees).
+Get the direction vector from one point to another
 
 ---
 
+#### getDirectionFromAngle
+
 ```js
-tool.getBorderingPoints(point)
+getDirectionFromAngle(angle: number) => Vector
 ```
 
+Get the direction vector from an angle (in radians)
+
+---
+
+#### getBorderingPoints
+
+```js
+getBorderingPoints(point: Point) => Point[]
+```
+
+The numbers below represent the indexes of points in the array
+
+```
 [4][0][5]
 
 [3][x][1]
 
 [7][2][6]
+```
 
 ---
 
 ### :heavy_division_sign::heavy_multiplication_x: Math
 
-```js
-tool.getAverage(list)
-```
-
-Get the average of a list of numbers.
-
----
+#### normalizeRange
 
 ```js
-tool.floorPoint(string)
-```
-
-Apply Math.floor to both x and y in a point.
-
-#### Example
-
-```js
-
-```
-
----
-
-```js
-tool.normalizeRange(min, max)
+normalizeRange(minimum: number, maximum: number) => (value: number) => number
 ```
 
 Turn a number range into a `0 - 1` number range.
 
-Returns a function to transform a number between `min` and `max`
+Returns a function to transform a number between `minimum` and `maximum`
 
-#### Example
+#### Example <!-- omit in toc -->
 
 ```js
 const min = 200
@@ -92,13 +119,13 @@ getOpacity(250)
 // 0.5
 ```
 
-#### Normalize to other than 0-1
+#### Normalize to other than 0-1 <!-- omit in toc -->
 
 Multiply the output of `tool.normalizeRange` with `intended max - min`
 
 Add to the output of `tool.normalizeRange` with `intended min`
 
-##### Example with 5 - 15
+##### Example with 5 - 15 <!-- omit in toc -->
 
 ```js
 import * as tool from 'tiny-toolkit'
@@ -114,41 +141,7 @@ const getOpacity = tool.normalize(min, max)
 
 ---
 
-```js
-tool.normalizeVector(vector)
-```
-
-[Normalize a vector](https://www.youtube.com/watch?v=m7VY1T6f8Ak).
-
-_This is useful for character movement in games_.
-
-#### Example - Character movement
-
-```js
-const movement = {
-  x: 0,
-  y: 0,
-}
-
-if (isKeyDown('down')) {
-  movement.y += 1
-}
-if (isKeyDown('up')) {
-  movement.y -= 1
-}
-if (isKeyDown('left')) {
-  movement.x -= 1
-}
-if (isKeyDown('right')) {
-  movement.x += 1
-}
-
-const normalizedMovement = normalizeVector(movement)
-// If DOWN and RIGHT are pressed:
-// { x: 0.7071067811865475, y: 0.7071067811865475 }
-```
-
----
+#### toRadians
 
 ```js
 tool.toRadians(angle)
@@ -158,6 +151,8 @@ Convert an angle from `degrees` to `radians`
 
 ---
 
+#### toDegrees
+
 ```js
 tool.toDegrees(angle)
 ```
@@ -166,23 +161,9 @@ Convert an angle from `radians` to `degrees`
 
 ---
 
-```js
-tool.roundTo(number, precision)
-```
-
-```js
-tool.roundUp(number, precision)
-```
-
-```js
-tool.roundDown(number, precision)
-```
-
-[Docs](https://github.com/sindresorhus/round-to)
-
----
-
 ### :iphone: Layout
+
+#### grid
 
 ```js
 tool.grid(options)
@@ -192,7 +173,7 @@ Generate a function to position objects on a grid.
 
 Returns a function to get coordinates. Signature: `(index: number) => { x, y }`
 
-#### Options
+#### Options <!-- omit in toc -->
 
 | Option       | Description                                                                           |
 | ------------ | ------------------------------------------------------------------------------------- |
@@ -203,7 +184,7 @@ Returns a function to get coordinates. Signature: `(index: number) => { x, y }`
 | **breakAt**  | The amount of cells on a `row` (`column` if `vertical` is `true`) before a line break |
 | **vertical** | If the grid should be layed out vertically instead (Default `false`)                  |
 
-#### Example
+#### Example <!-- omit in toc -->
 
 ```js
 import * as tool from 'tiny-toolkit'
@@ -224,6 +205,8 @@ numbers.map(getCell)
 
 ---
 
+#### line
+
 ```js
 tool.line(options)
 ```
@@ -232,14 +215,14 @@ Generate a function to position objects on a line.
 
 Returns a function to get a coordinate. Signature: `(index: number) => number`
 
-#### Options
+#### Options <!-- omit in toc -->
 
 | Option     | Description                      |
 | ---------- | -------------------------------- |
 | **start**  | The position of the first object |
 | **margin** | The space between each object    |
 
-#### Example
+#### Example <!-- omit in toc -->
 
 ```js
 import * as tool from 'tiny-toolkit'
@@ -259,6 +242,8 @@ numbers.map(getX)
 
 ### :star: Collisions
 
+#### isColliding
+
 ```js
 tool.isColliding(rectangle1, rectangle2)
 ```
@@ -266,6 +251,8 @@ tool.isColliding(rectangle1, rectangle2)
 Check if two rectangles are colliding.
 
 ---
+
+#### getOverlappingArea
 
 ```js
 tool.getOverlappingArea(rectangle1, rectangle2)
@@ -277,19 +264,23 @@ Check how much two rectangles are overlapping
 
 ### :star: Misc
 
+#### treeToList
+
 ```js
-tool.treeToList(rootNode, childrenField)
+tool.treeToList(rootNode: Node, childrenField?: string = 'children') => Node[]
 ```
 
 Convert a tree structure into a flat list
 
-#### Example
+#### Example <!-- omit in toc -->
 
 ```js
 
 ```
 
 ---
+
+#### capitalize
 
 ```js
 tool.capitalize(string)
@@ -297,7 +288,7 @@ tool.capitalize(string)
 
 Make the first letter in a string uppercase.
 
-#### Example
+#### Example <!-- omit in toc -->
 
 ```js
 
@@ -305,13 +296,15 @@ Make the first letter in a string uppercase.
 
 ---
 
+#### getNextItem
+
 ```js
 tool.getNextItem(currentItem, list)
 ```
 
 Get the next item in a list. Loops back to the first item after the last one.
 
-#### Example
+#### Example <!-- omit in toc -->
 
 ```js
 
@@ -328,7 +321,3 @@ Get the next item in a list. Loops back to the first item after the last one.
 **npm**
 
 `npm install tiny-toolkit`
-
----
-
-## :book: Recipes
