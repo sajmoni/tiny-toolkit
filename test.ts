@@ -286,3 +286,7 @@ test('getDirection - 2', (t) => {
 test('getAverage', (t) => {
   t.is(tool.getAverage([1, 3]), 2)
 })
+
+test('getNameFromFilename', (t) => {
+  t.is(tool.getNameFromFilename('thisIsAName.mp3'), 'thisIsAName')
+})

@@ -370,3 +370,6 @@ export const getAverage = (values: number[]): number => {
 
   return sum / values.length
 }
+
+export const getNameFromFilename = (fileName: string): string =>
+  fileName.slice(0, fileName.lastIndexOf('.'))
