@@ -203,8 +203,8 @@ test('useIndex - loop === false', (t) => {
   t.is(getPrevious(-1000), -1000)
 })
 
-test('create2DArrayWithDistanceToCenter', (t) => {
-  const coordinates = tool.create2DArrayWithDistanceToCenter(3, 3)
+test('create2dArrayWithDistanceToCenter', (t) => {
+  const coordinates = tool.create2dArrayWithDistanceToCenter(3, 3)
 
   t.deepEqual(coordinates, [
     { distanceToCenter: 2.1213203435596424, x: 0, y: 0 },
