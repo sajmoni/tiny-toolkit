@@ -233,7 +233,8 @@ export const getNextItem = <T>(currentItem: T, list: T[]): T => {
   }
 
   const nextIndex = (currentIndex + 1) % list.length
-  return list[nextIndex]
+
+  return list[nextIndex] as T
 }
 
 export const getPreviousItem = <T>(currentItem: T, list: T[]): T => {
@@ -244,7 +245,8 @@ export const getPreviousItem = <T>(currentItem: T, list: T[]): T => {
 
   const previousIndex =
     currentIndex - 1 < 0 ? list.length - 1 : currentIndex - 1
-  return list[previousIndex]
+
+  return list[previousIndex] as T
 }
 
 export const useIndex = (maximum: number, options: { loop?: boolean } = {}) => {
