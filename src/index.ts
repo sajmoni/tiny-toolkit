@@ -375,3 +375,13 @@ export const getAverage = (values: number[]): number => {
 
 export const getNameFromFilename = (fileName: string): string =>
   fileName.slice(0, fileName.lastIndexOf('.'))
+
+export const insertString = (
+  string: string,
+  toInsert: string,
+  position: number,
+) =>
+  `${string.slice(0, position)}${toInsert}${string.slice(
+    position,
+    string.length,
+  )}`

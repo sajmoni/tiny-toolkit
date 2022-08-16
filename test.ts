@@ -290,3 +290,7 @@ test('getAverage', (t) => {
 test('getNameFromFilename', (t) => {
   t.is(tool.getNameFromFilename('thisIsAName.mp3'), 'thisIsAName')
 })
+
+test('insertString', (t) => {
+  t.is(tool.insertString('justAString', 'Simple', 5), 'justASimpleString')
+})
