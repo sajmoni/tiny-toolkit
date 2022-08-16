@@ -6,6 +6,7 @@
   "files": [
     "dist/"
   ],
+  "sideEffects": false,
   "directories": {
     "example": "example"
   },
