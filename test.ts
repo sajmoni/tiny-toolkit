@@ -294,3 +294,7 @@ test('getNameFromFilename', (t) => {
 test('insertString', (t) => {
   t.is(tool.insertString('justAString', 'Simple', 5), 'justASimpleString')
 })
+
+test('getRandomInt', (t) => {
+  t.notThrows(tool.getRandomInt)
+})

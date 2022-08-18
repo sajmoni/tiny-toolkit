@@ -385,3 +385,6 @@ export const insertString = (
     position,
     string.length,
   )}`
+
+const MAX_INT32 = 2_147_483_647
+export const getRandomInt = () => Math.floor(Math.random() * MAX_INT32)
