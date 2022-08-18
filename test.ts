@@ -298,3 +298,7 @@ test('insertString', (t) => {
 test('getRandomInt', (t) => {
   t.notThrows(tool.getRandomInt)
 })
+
+test('findDuplicates()', (t) => {
+  t.deepEqual(tool.findDuplicates(['foo', 'not a duplicate', 'foo']), ['foo'])
+})

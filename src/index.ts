@@ -388,3 +388,18 @@ export const insertString = (
 
 const MAX_INT32 = 2_147_483_647
 export const getRandomInt = () => Math.floor(Math.random() * MAX_INT32)
+
+export const findDuplicates = <T extends string | number>(list: T[]): T[] => {
+  const visited = new Set<T>()
+  const duplicates = new Set<T>()
+
+  for (const item of list) {
+    if (visited.has(item)) {
+      duplicates.add(item)
+    } else {
+      visited.add(item)
+    }
+  }
+
+  return Array.from(duplicates)
+}
