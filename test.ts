@@ -107,6 +107,11 @@ test('normalizeRange', (t) => {
   t.is(5 + getValue(250) * 10, 10)
 })
 
+test('deNormalizeRange', (t) => {
+  const getValue = tool.deNormalizeRange(200, 300)
+  t.is(getValue(0.5), 250)
+})
+
 test('toRadians', (t) => {
   const radians = tool.toRadians(90)
   t.is(radians, Math.PI / 2)

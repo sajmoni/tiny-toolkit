@@ -93,6 +93,19 @@ export const normalizeRange = (minimum: number, maximum: number): GetValue => {
 }
 
 /**
+ * Returns a function that takes a 0-1 range and transforms it to a value between startValue and endValue
+ */
+export function deNormalizeRange(startValue: number, endValue: number) {
+  const delta = startValue - endValue
+  /**
+   * Value should be between 0 and 1
+   */
+  return (value: number) => {
+    return startValue - value * delta
+  }
+}
+
+/**
  * Convert degrees to radians
  */
 export const toRadians = (degrees: number): number => degrees * (Math.PI / 180)
