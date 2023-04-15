@@ -1,7 +1,7 @@
 {
   "name": "tiny-toolkit",
   "version": "0.2.2",
-  "description": "A tiny collection of useful javascript game dev tools",
+  "description": "A collection of useful tiny javascript functions",
   "main": "./dist/index.js",
   "files": [
     "dist/"
@@ -17,33 +17,24 @@
     "url": "git+https://github.com/sajmoni/tiny-toolkit.git"
   },
   "private": false,
-  "ava": {
-    "require": [
-      "esbuild-runner/register"
-    ],
-    "extensions": [
-      "ts"
-    ]
-  },
   "prettier": "prettier-config-one",
   "scripts": {
-    "go": "npm run build && preview && ava",
+    "go": "npm run build && preview && npm test",
     "release": "npm run build && np --no-tests",
-    "test": "ava",
+    "test": "vitest",
     "build": "rm -rf dist && tsc"
   },
   "devDependencies": {
-    "ava": "4.3.1",
-    "esbuild-runner": "2.2.1",
-    "np": "7.6.2",
+    "np": "7.7.0",
     "package-preview": "4.0.0",
-    "prettier": "2.7.1",
-    "prettier-config-one": "0.1.0",
-    "remeda": "0.0.35",
-    "tsconfig-one": "0.0.2",
-    "typescript": "4.7.4"
+    "prettier": "2.8.7",
+    "prettier-config-one": "0.1.1",
+    "remeda": "1.12.0",
+    "tsconfig-one": "0.0.4",
+    "typescript": "5.0.4",
+    "vitest": "0.30.0"
   },
   "dependencies": {
-    "round-to": "5.0.0"
+    "round-to": "6.0.0"
   }
 }
