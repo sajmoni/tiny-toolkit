@@ -197,7 +197,7 @@ test('getPreviousItem', () => {
 })
 
 test('useIndex', () => {
-  const { getNext, getPrevious } = tool.useIndex(10)
+  const { getNext, getPrevious, goTo } = tool.useIndex(10)
 
   expect(getNext(0)).toBe(1)
   expect(getNext(1)).toBe(2)
@@ -209,6 +209,11 @@ test('useIndex', () => {
   // Out of bounds
   expect(getNext(1000)).toBe(0)
   expect(getPrevious(-100)).toBe(9)
+
+  // goTo
+  expect(goTo(5)).toBe(5)
+  expect(goTo(1000)).toBe(9)
+  expect(goTo(-100)).toBe(0)
 })
 
 test('useIndex - loop === false', () => {

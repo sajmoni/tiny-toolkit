@@ -266,19 +266,28 @@ export const useIndex = (maximum: number, options: { loop?: boolean } = {}) => {
   const { loop = true } = options
   const minimum = 0
   return {
-    getNext: (index: number): number => {
-      if (index + 1 > maximum - 1) {
-        return loop ? minimum : index
+    getNext: (currentIndex: number): number => {
+      if (currentIndex + 1 > maximum - 1) {
+        return loop ? minimum : currentIndex
       }
 
-      return index + 1
+      return currentIndex + 1
     },
-    getPrevious: (index: number): number => {
-      if (index - 1 < minimum) {
-        return loop ? maximum - 1 : index
+    getPrevious: (currentIndex: number): number => {
+      if (currentIndex - 1 < minimum) {
+        return loop ? maximum - 1 : currentIndex
       }
 
-      return index - 1
+      return currentIndex - 1
+    },
+    goTo: (toIndex: number): number => {
+      if (toIndex < minimum) {
+        return minimum
+      }
+      if (toIndex > maximum) {
+        return maximum - 1
+      }
+      return toIndex
     },
   }
 }
