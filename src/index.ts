@@ -425,3 +425,12 @@ export const findDuplicates = <T extends string | number>(list: T[]): T[] => {
 
   return Array.from(duplicates)
 }
+
+/**
+ * Convert map to a list of key value pairs
+ */
+export function mapToArray<Key, Value>(
+  map: Map<Key, Value>,
+): Array<[Key, Value]> {
+  return Array.from(map, ([key, value]) => [key, value])
+}
