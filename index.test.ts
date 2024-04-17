@@ -1,6 +1,7 @@
-import * as tool from 'tiny-toolkit'
 import { test, expect } from 'vitest'
 import * as R from 'remeda'
+
+import * as tool from './src'
 
 const point1 = {
   x: 10,
@@ -8,18 +9,18 @@ const point1 = {
 }
 
 const point2 = {
-  x: 30,
+  x: 10,
   y: 40,
 }
 
 test('getAngle', () => {
   const angle = tool.getAngle(point2, point1)
-  expect(angle).toBe(3.9269908169872414)
+  expect(angle).toBe(1.5707963267948966)
 })
 
 test('getDistance', () => {
   const distance = tool.getDistance(point1, point2)
-  expect(distance).toBe(28.284271247461902)
+  expect(distance).toBe(20)
 })
 
 test('grid', () => {
@@ -325,7 +326,7 @@ test('getRandomInt', () => {
   // t.notThrows(tool.getRandomInt)
 })
 
-test('findDuplicates()', () => {
+test('findDuplicates', () => {
   expect(tool.findDuplicates(['foo', 'not a duplicate', 'foo'])).toEqual([
     'foo',
   ])

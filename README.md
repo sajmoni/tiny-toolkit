@@ -2,18 +2,14 @@
 
 > A collection of useful tiny JavaScript functions
 
-<div align="center">
-  <img src="https://badgen.net/npm/v/tiny-toolkit?icon=npm" />
-  <img src="https://badgen.net/bundlephobia/minzip/tiny-toolkit" />
-  <img src="https://badgen.net/github/last-commit/sajmoni/tiny-toolkit?icon=github" />
-</div>
+<img src="https://badgen.net/bundlephobia/minzip/tiny-toolkit" />
 
 ## Index <!-- omit in toc -->
 
-- [:sparkles: Features](#sparkles-features)
-  - [:straight_ruler: Measure](#straight_ruler-measure)
-    - [getAngle](#getangle)
-    - [getDistance](#getdistance)
+- [:package: Install](#package-install)
+- [:straight_ruler: Measure](#straight_ruler-measure)
+  - [getAngle](#getangle)
+  - [getDistance](#getdistance)
     - [getDirection](#getdirection)
     - [getDirectionFromAngle](#getdirectionfromangle)
     - [getBorderingPoints](#getborderingpoints)
@@ -37,29 +33,40 @@
     - [treeToList](#treetolist-1)
     - [useIndex](#useindex)
     - [create2dArrayWithDistanceToCenter](#create2darraywithdistancetocenter)
-- [:computer: Install](#computer-install)
 
-## :sparkles: Features
+## :package: Install
 
-### :straight_ruler: Measure
-
-#### getAngle
-
-```ts
-getAngle(origin: Point, target: Point) => number
+```console
+npm install tiny-toolkit
 ```
+
+## :straight_ruler: Measure
+
+### getAngle
 
 Get the angle (in radians) between two points
 
----
-
-#### getDistance
-
 ```ts
-getDistance(origin: Point, target: Point) => number
+const origin = { x: 10, y: 20 }
+const target = { x: 30, y: 40 }
+
+getAngle(origin, target)
+// 3.9269908169872414
 ```
 
+---
+
+### getDistance
+
 Get the distance between two points
+
+```ts
+const origin = { x: 10, y: 20 }
+const target = { x: 30, y: 40 }
+
+getDistance(origin, target)
+// 28.284271247461902
+```
 
 ---
 
@@ -361,13 +368,3 @@ getSurroundingRectangle(point: Point, width: number, height: number) => Rectangl
 #### create2dArrayWithDistanceToCenter
 
 ---
-
-## :computer: Install
-
-**yarn**
-
-`yarn add tiny-toolkit`
-
-**npm**
-
-`npm install tiny-toolkit`

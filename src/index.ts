@@ -55,16 +55,20 @@ type GetCell = (index: number) => Point
 /**
  * Generate a grid
  */
-export const grid =
-  ({
-    x,
-    y,
-    marginX,
-    marginY,
-    breakAt,
-    vertical = false,
-  }: GridOptions): GetCell =>
-  (index) => {
+export const grid = ({
+  x,
+  y,
+  marginX,
+  marginY,
+  breakAt,
+  vertical = false,
+}: GridOptions): GetCell => {
+  if (breakAt <= 0) {
+    throw new Error(
+      'tiny-toolkit - grid - breakAt: Needs to be a positive integer',
+    )
+  }
+  return (index) => {
     const row = Math.floor(index / breakAt)
     const column = index % breakAt
     return {
@@ -72,6 +76,7 @@ export const grid =
       y: y + (vertical ? column : row) * marginY,
     }
   }
+}
 
 /**
  * Create a function to place items on a line
@@ -429,7 +434,7 @@ export const findDuplicates = <T extends string | number>(list: T[]): T[] => {
 /**
  * Convert map to a list of key value pairs
  */
-export function mapToArray<Key, Value>(
+export function mapToEntries<Key, Value>(
   map: Map<Key, Value>,
 ): Array<[Key, Value]> {
   return Array.from(map, ([key, value]) => [key, value])
