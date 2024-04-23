@@ -54,7 +54,7 @@ export const getDistance = (
   { x: x2, y: y2 }: Point,
 ): number => Math.hypot(Math.abs(x2 - x1), Math.abs(y2 - y1))
 
-type GetCell = (index: number) => Point
+type GetCell = (index: number) => Point & { isFinalColumn: boolean }
 
 /**
  * Generate a grid
@@ -78,6 +78,8 @@ export const grid = ({
     return {
       x: x + (vertical ? row : column) * marginX,
       y: y + (vertical ? column : row) * marginY,
+      // If vertical, it's not possible to know if the column is the final one since the grid is potentially infinite
+      isFinalColumn: vertical ? false : (index + 1) % breakAt === 0,
     }
   }
 }

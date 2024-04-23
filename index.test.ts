@@ -38,22 +38,27 @@ test('grid', () => {
     {
       x: 10,
       y: 20,
+      isFinalColumn: false,
     },
     {
       x: 20,
       y: 20,
+      isFinalColumn: false,
     },
     {
       x: 30,
       y: 20,
+      isFinalColumn: true,
     },
     {
       x: 10,
       y: 40,
+      isFinalColumn: false,
     },
     {
       x: 20,
       y: 40,
+      isFinalColumn: false,
     },
   ])
 })
@@ -74,22 +79,27 @@ test('grid - vertical', () => {
     {
       x: 10,
       y: 20,
+      isFinalColumn: false,
     },
     {
       x: 10,
       y: 40,
+      isFinalColumn: false,
     },
     {
       x: 10,
       y: 60,
+      isFinalColumn: false,
     },
     {
       x: 20,
       y: 20,
+      isFinalColumn: false,
     },
     {
       x: 20,
       y: 40,
+      isFinalColumn: false,
     },
   ])
 })
