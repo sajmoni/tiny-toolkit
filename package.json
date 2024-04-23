@@ -24,10 +24,10 @@
     "build": "rm -rf dist && tsc"
   },
   "devDependencies": {
-    "np": "10.0.3",
+    "np": "10.0.5",
     "prettier": "3.2.5",
     "prettier-config-one": "0.2.1",
-    "remeda": "1.60.1",
+    "remeda": "1.61.0",
     "tsconfig-one": "0.0.9",
     "typescript": "5.4.5",
     "vitest": "1.5.0"
