@@ -1,5 +1,9 @@
 import { roundTo } from 'round-to'
 
+export type DirectionX = 'left' | 'right'
+export type DirectionY = 'up' | 'down'
+export type Direction4 = DirectionX | DirectionY
+
 export type Point = {
   x: number
   y: number
