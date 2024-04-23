@@ -270,30 +270,23 @@ export const getPreviousItem = <T>(currentItem: T, list: T[]): T => {
 export const useIndex = (maximum: number, options: { loop?: boolean } = {}) => {
   const { loop = true } = options
   const minimum = 0
-  return {
-    getNext: (currentIndex: number): number => {
-      if (currentIndex + 1 > maximum - 1) {
-        return loop ? minimum : currentIndex
-      }
 
-      return currentIndex + 1
-    },
-    getPrevious: (currentIndex: number): number => {
-      if (currentIndex - 1 < minimum) {
-        return loop ? maximum - 1 : currentIndex
-      }
+  return (currentIndex: number, value: number) => {
+    if (currentIndex > maximum - 1 || currentIndex < 0) {
+      console.warn(
+        `useIndex: currentIndex: "${currentIndex}" passed is out of bounds`,
+      )
+      return currentIndex
+    }
 
-      return currentIndex - 1
-    },
-    goTo: (toIndex: number): number => {
-      if (toIndex < minimum) {
-        return minimum
-      }
-      if (toIndex > maximum) {
-        return maximum - 1
-      }
-      return toIndex
-    },
+    const newValue = currentIndex + value
+    if (newValue > maximum - 1) {
+      return loop ? Math.abs(newValue - maximum) : currentIndex
+    }
+    if (newValue < minimum) {
+      return loop ? maximum + newValue : currentIndex
+    }
+    return newValue
   }
 }
 

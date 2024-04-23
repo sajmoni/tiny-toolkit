@@ -198,33 +198,36 @@ test('getPreviousItem', () => {
 })
 
 test('useIndex', () => {
-  const { getNext, getPrevious, goTo } = tool.useIndex(10)
+  // Loop
+  const getNewIndex = tool.useIndex(10, { loop: true })
 
-  expect(getNext(0)).toBe(1)
-  expect(getNext(1)).toBe(2)
-  expect(getNext(9)).toBe(0)
-  expect(getPrevious(0)).toBe(9)
-  expect(getPrevious(1)).toBe(0)
-  expect(getPrevious(10)).toBe(9)
+  expect(getNewIndex(0, 1)).toBe(1)
+  expect(getNewIndex(1, 1)).toBe(2)
+  expect(getNewIndex(9, 1)).toBe(0)
+  expect(getNewIndex(0, -1)).toBe(9)
+  expect(getNewIndex(1, -1)).toBe(0)
+  expect(getNewIndex(9, -1)).toBe(8)
 
   // Out of bounds
-  expect(getNext(1000)).toBe(0)
-  expect(getPrevious(-100)).toBe(9)
+  expect(getNewIndex(1000, 1)).toBe(1000)
+  expect(getNewIndex(-100, -1)).toBe(-100)
 
-  // goTo
-  expect(goTo(5)).toBe(5)
-  expect(goTo(1000)).toBe(9)
-  expect(goTo(-100)).toBe(0)
+  expect(getNewIndex(0, 5)).toBe(5)
+  expect(getNewIndex(5, -5)).toBe(0)
+  expect(getNewIndex(9, 5)).toBe(4)
+  expect(getNewIndex(0, -5)).toBe(5)
 })
 
 test('useIndex - loop === false', () => {
-  const { getNext, getPrevious } = tool.useIndex(10, { loop: false })
-  expect(getNext(9)).toBe(9)
-  expect(getPrevious(0)).toBe(0)
+  const getNewIndex = tool.useIndex(10, { loop: false })
+  expect(getNewIndex(9, 1)).toBe(9)
+  expect(getNewIndex(0, -1)).toBe(0)
+  expect(getNewIndex(9, 5)).toBe(9)
+  expect(getNewIndex(0, -5)).toBe(0)
 
   // Out of bounds
-  expect(getNext(1000)).toBe(1000)
-  expect(getPrevious(-1000)).toBe(-1000)
+  expect(getNewIndex(1000, 1)).toBe(1000)
+  expect(getNewIndex(-100, -1)).toBe(-100)
 })
 
 test('create2dArrayWithDistanceToCenter', () => {
