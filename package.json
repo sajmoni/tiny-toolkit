@@ -1,6 +1,6 @@
 {
   "name": "tiny-toolkit",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "description": "A collection of useful tiny javascript functions",
   "main": "./dist/index.js",
   "files": [
